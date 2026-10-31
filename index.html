@@ -4,6 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#000000">
+<meta name="color-scheme" content="dark">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
 <title>스픽스(SPIX) — 내 사업에 맞는 무기를 찾고, 만들고, 씁니다</title>
 <link rel="icon" href="img/symbol.png">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
@@ -317,6 +320,50 @@ dialog{background:#101012;color:#fff}.dbody em{color:var(--blue-lt)}.dbody h3{co
 .olist{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin-top:24px}
 .olist button{display:grid;gap:3px;background:#161618;padding:14px 16px}.olist b{font-weight:800;font-size:18px}.olist span{font-size:14px;color:#a1a1a6}.olist u{text-decoration:none;font-weight:700;font-size:14.5px}
 @media (max-width:760px){.stage{height:72svh}.olist{grid-template-columns:1fr}#pv{left:10px!important;width:calc(100vw - 20px);top:auto!important;bottom:10px}.pvf{height:96px}.pvf img{max-height:80px}}
+
+/* UX 개선판 */
+:root{color-scheme:dark}
+button,a{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+h1,h2,.h2{text-wrap:balance}
+.armory{padding:0}
+.wall3{display:grid;grid-template-columns:repeat(3,1fr);gap:0;height:max(620px,calc(100svh - var(--top)));padding:0 var(--pad) 14px}
+.col{display:flex;flex-direction:column;min-height:0;padding:clamp(12px,2vh,22px) clamp(8px,1vw,16px) 0}
+.colh h2{font-weight:900;font-size:clamp(34px,3.6vw,52px);line-height:1;letter-spacing:-.04em;display:flex;align-items:baseline;gap:10px}
+.colh h2 small{font-weight:700;font-size:16px;letter-spacing:0;color:var(--blue-lt)}
+.colh p{font-weight:500;font-size:15px;color:#d1d1d6;margin-top:6px;min-height:2.6em;line-height:1.3}
+.cells{flex:1;min-height:0;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:6px}
+.wp{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:6px;min-height:0;min-width:0;width:100%;padding:24px 4px 4px;transition:background-color .2s}
+.wp:hover,.wp.hot{background-color:rgba(255,255,255,.05)}
+.fig{position:relative;flex:1;min-height:0;width:100%;display:block;transform:rotate(var(--r,0deg));transform-origin:50% 0}
+.fig img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+.hk{margin-left:-6px}
+.pl{font-size:14.5px;background:rgba(0,0,0,.85);white-space:normal;text-align:center;flex:none}
+.wp.main .pl{background:var(--blue);color:#fff}
+.wp.flash .fig{animation:swing2 1.1s 2 cubic-bezier(.3,1.3,.4,1)}
+#pv{overscroll-behavior:contain}
+.pva{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:6px}.pva .btn{margin:0;padding:10px 8px;font-size:14px}
+.pvp{font-weight:700;font-size:14px;color:#fff;background:var(--blue);padding:6px 9px}
+.pvx{position:absolute;top:8px;right:8px;background:#2c2c2e;padding:4px 10px;border-radius:999px;font-size:13px;font-weight:700}
+dialog{overscroll-behavior:contain}
+.x{width:auto;height:auto;padding:8px 14px;border-radius:999px;font-size:14px}
+.ticker{font-size:13px}
+.band{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;padding-block:clamp(56px,7vw,100px)}.band .cta{margin:0}.band .btn{font-size:17px;padding:16px 30px}
+.q input[aria-invalid=true]{outline:2px solid #ff453a}
+.err{color:#ff8a80;font-weight:700;font-size:14px;margin-top:6px}
+.pick{background:var(--blue);padding:10px 14px;font-weight:600;margin-bottom:18px}.pick b{font-weight:800}
+.more{margin-top:20px}.more summary{cursor:pointer;font-weight:700;font-size:15px;padding:10px 0;color:var(--blue-lt)}
+[data-only][hidden]{display:none}
+.reassure{font-size:14px;color:#d1d1d6;margin-top:10px;text-align:center}
+.foot small,.tabs sup{font-size:13px}
+@media (max-width:1180px) and (min-width:761px){.wall3{height:auto;min-height:0}.cells{grid-template-rows:200px 200px}}
+@media (max-width:760px){
+ .wall3{grid-template-columns:1fr;height:auto;padding-bottom:30px}
+ .col{padding-top:30px}.colh p{min-height:0}
+ .cells{grid-template-rows:170px 170px}
+ .pl{font-size:13.5px}
+ .h2{font-size:clamp(25px,6.6vw,30px)}
+ #pv .pvf{display:none}
+}
 </style>
 <script>document.documentElement.classList.add('js')</script>
 </head>
@@ -370,14 +417,6 @@ dialog{background:#101012;color:#fff}.dbody em{color:var(--blue-lt)}.dbody h3{co
     </div>
   </section>
 
-  <section class="sec blue">
-    <h2 class="h2 rv">찾고, 만들고, 씁니다.</h2>
-    <div class="steps">
-      <div class="rv" style="--i:1"><b>찾기</b><span>브랜드</span><p>왜 나를 골라야 하는지 한 줄로 정합니다.</p></div>
-      <div class="rv" style="--i:2"><b>만들기</b><span>홍보</span><p>그 한 줄을 명함, 영상, 사이트, 행사로 만듭니다.</p></div>
-      <div class="rv" style="--i:3"><b>쓰기</b><span>마케팅</span><p>만든 것을 실제로 알려 찾아오게 합니다.</p></div>
-    </div>
-  </section>
 
 
   <section class="sec white">
@@ -422,7 +461,7 @@ dialog{background:#101012;color:#fff}.dbody em{color:var(--blue-lt)}.dbody h3{co
     <h2 class="h2 rv">연도별 업력</h2>
     <ol class="hist" id="hist" style="margin-top:30px"></ol>
   </section>
-  <section class="sec act" data-act></section>
+  <section class="sec band"><p class="h2 rv">이 팀에게 맡기려면.</p><p class="cta rv"><a class="btn" href="#/contact/weapon">무기 상담 신청</a></p></section>
 </div>
 
 <!-- 서비스 -->
@@ -444,14 +483,14 @@ dialog{background:#101012;color:#fff}.dbody em{color:var(--blue-lt)}.dbody h3{co
   <div class="clients"><h2>발주처</h2><div id="clients"></div></div>
   <div class="tabs" id="tabs" role="group" aria-label="용역 유형"></div>
   <div class="cards" id="cards" aria-live="polite"></div>
-  <section class="sec act" data-act></section>
+  <section class="sec band"><p class="h2 rv">이런 일을 맡기려면.</p><p class="cta rv"><a class="btn" href="#/contact/proposal">제안 요청하기</a></p></section>
 </div>
 
 <!-- 공간 -->
 <div class="page" data-p="space" hidden>
   <div class="pagehead peg"><h1>자사 공간 브랜드 운영</h1><p class="lead">직접 만들고, 문을 열고, 손님을 맞았습니다.</p></div>
   <div id="spaces"></div>
-  <section class="sec act" data-act></section>
+  <section class="sec band"><p class="h2 rv">직접 운영해 본 팀에게 물어보세요.</p><p class="cta rv"><a class="btn" href="#/contact/weapon">무기 상담 신청</a></p></section>
 </div>
 
 <!-- 언론 -->
@@ -470,7 +509,7 @@ dialog{background:#101012;color:#fff}.dbody em{color:var(--blue-lt)}.dbody h3{co
       <div class="rv" style="--i:2"><h2>기사</h2><div id="news"></div></div>
     </div>
   </section>
-  <section class="sec act" data-act></section>
+  <section class="sec band"><p class="h2 rv">이 기록을 만든 팀과 이야기하세요.</p><p class="cta rv"><a class="btn" href="#/contact/weapon">무기 상담 신청</a></p></section>
 </div>
 
 <!-- 상담 -->
@@ -487,13 +526,19 @@ dialog{background:#101012;color:#fff}.dbody em{color:var(--blue-lt)}.dbody h3{co
       <p class="lead" style="font-weight:700">광고비는 멈추는 날 끝납니다. 이름은 남습니다.</p>
     </div>
     <form class="sheet" id="fm" novalidate>
-      <div class="q"><label for="f1">이름 · 분야</label><input id="f1" placeholder="예: 우리 브랜드 · 식품 제조" autocomplete="off"></div>
+      <p class="pick" id="pick" hidden></p>
+      <div class="q"><label for="f1" id="l1">이름 · 분야</label><input id="f1" name="name" type="text" required aria-describedby="e1" placeholder="예: 우리 브랜드 · 식품 제조…" autocomplete="name"><p class="err" id="e1" hidden>이름이나 분야를 적어 주세요. 대표가 연락할 때 부를 이름입니다.</p></div>
+      <div class="q"><label for="f2">연락처</label><input id="f2" name="tel" type="tel" inputmode="tel" required aria-describedby="e2" placeholder="010-0000-0000" autocomplete="tel"><p class="err" id="e2" hidden>전화번호를 010-0000-0000 꼴로 적어 주세요.</p></div>
+      <div class="q" data-only="diagnosis"><label for="f3">아이템 한 줄</label><input id="f3" name="item" type="text" placeholder="예: 동네 반려동물 수제 간식 구독…" autocomplete="off"></div>
+      <div class="q" data-only="proposal"><label for="f4">맡기려는 사업</label><input id="f4" name="project" type="text" placeholder="예: ○○군 청년정책 홍보영상…" autocomplete="off"></div>
+      <details class="more" data-only="weapon"><summary>더 알려 주면 상담이 빨라집니다 (선택)</summary>
       <div class="q" data-chips="사업한 지"><p>사업한 지</p><div class="chips"><button type="button">준비 중</button><button type="button">1년 안</button><button type="button">1~3년</button><button type="button">3~10년</button><button type="button">10년 넘게</button></div></div>
-      <div class="q" data-chips="바꾸고 싶은 것"><p>바꾸고 싶은 것</p><div class="chips"><button type="button">아이템 판단</button><button type="button">로고·간판</button><button type="button">홍보물</button><button type="button">영상·웹</button><button type="button">브랜드 전체</button><button type="button">아직 모름</button></div></div>
-      <div class="q" data-chips="왜 지금"><p>왜 지금</p><div class="chips"><button type="button">창업 준비</button><button type="button">리뉴얼</button><button type="button">온라인 진출</button><button type="button">2호점</button><button type="button">신제품</button><button type="button">지원금 선정</button><button type="button">기관 사업</button></div></div>
+      <div class="q" data-chips="바꾸고 싶은 것"><p>바꾸고 싶은 것</p><div class="chips"><button type="button">로고·간판</button><button type="button">홍보물</button><button type="button">영상·웹</button><button type="button">브랜드 전체</button><button type="button">아직 모름</button></div></div>
+      <div class="q" data-chips="왜 지금"><p>왜 지금</p><div class="chips"><button type="button">창업 준비</button><button type="button">리뉴얼</button><button type="button">온라인 진출</button><button type="button">2호점</button><button type="button">신제품</button><button type="button">지원금 선정</button></div></div>
       <div class="q" data-chips="예산"><p>예산</p><div class="chips"><button type="button">50만 원 안</button><button type="button">50~300만</button><button type="button">300~1,000만</button><button type="button">1,000만 넘게</button></div></div>
-      <div class="q"><label for="f2">연락처</label><input id="f2" placeholder="010-0000-0000" autocomplete="off"></div>
+      </details>
       <button class="btn send" id="send" type="submit">무기 상담 신청</button>
+      <p class="reassure">상담은 무료입니다. 화·목 오전에 대표가 직접 연락합니다.</p>
       <p class="done" id="done" role="status" hidden>시안 화면이라 실제로 접수되지 않았습니다. 입력한 내용은 어디에도 저장되지 않습니다.</p>
     </form>
   </div>
@@ -506,7 +551,7 @@ dialog{background:#101012;color:#fff}.dbody em{color:var(--blue-lt)}.dbody h3{co
   <small>스픽스(SPIX) · 내부 검토용 시안 · 공개 전 문구와 값이 바뀝니다.</small>
 </footer>
 
-<dialog id="dr" aria-labelledby="dtitle"><button class="x" id="dx" aria-label="닫기">✕</button><div id="dc"></div></dialog>
+<dialog id="dr" aria-labelledby="dtitle"><button class="x" id="dx" aria-label="닫기">닫기</button><div id="dc"></div></dialog>
 
 <script>
 const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
@@ -518,32 +563,21 @@ const WEP=[{"hk": [50, 0], "id": "card", "w": "표창", "img": "shuriken", "ext"
 const ZON=[["인쇄 코너", "명함과 홍보 인쇄물", 880], ["주력 무기", "브랜드를 만드는 긴 칼", 1250], ["작전 탁자", "싸우기 전에 펼치는 것", 1000], ["화력 코너", "만든 것을 실제로 쏩니다", 1560]];
 
 const PCHK=v=>v.replace('CHK',CHK);
-const ZX=[];let wx=0;ZON.forEach(z=>{ZX.push(wx);wx+=z[2]});const WW=wx;
+const COLS=[['찾기','브랜드','왜 나를 골라야 하는지 한 줄로 정합니다.',['diag','map','book','brand']],['만들기','홍보','그 한 줄을 명함, 영상, 사이트, 행사로 만듭니다.',['card','banner','custom','poster']],['쓰기','마케팅','만든 것을 실제로 알려 찾아오게 합니다.',['agency','flyer','goods','care']]];
+const PROOF={agency:"남악신도시 'ㅁ'사 월 매출 900만 원 → 3개월 뒤 2,700만 원"};
+function placeHook(fig){const img=$('img',fig),hk=$('.hk',fig);if(!img.naturalWidth)return;const W0=fig.clientWidth,H0=fig.clientHeight,k=Math.min(W0/img.naturalWidth,H0/img.naturalHeight),w=img.naturalWidth*k,h=img.naturalHeight*k,x=(W0-w)/2,y=(H0-h)/2;hk.style.left=(x+w*(+fig.dataset.hx)/100)+'px';hk.style.top=(y+h*(+fig.dataset.hy)/100-24)+'px'}
 function wall(el){
- let h='<div class="stage"><div class="world" style="width:'+WW+'px">';
- ZON.forEach((z,i)=>h+=`<div class="zsign" style="left:${ZX[i]+70}px"><h3>${z[0]}</h3><p>${z[1]}</p></div>`);
- WEP.forEach(s=>h+=`<button class="wp" type="button" data-w="${s.id}" style="left:${ZX[s.z]+s.x}px;top:${s.y}px;width:${s.vw}px" aria-label="${s.w}: ${s.n}"><span class="fig" style="--r:${s.r}deg"><i class="hk" style="left:${s.hk[0]}%;top:calc(${s.hk[1]}% - 24px)"></i><img src="w/${s.img}.${s.ext}" alt="" draggable="false"></span><span class="pl">${s.n}</span></button>`);
- h+=`<div class="counter" style="left:${ZX[ZX.length-1]+1190}px;top:240px"><p class="neon">뭘 고를지<br>모르겠다면</p><a class="btn" href="#/contact/weapon">무기 상담 신청</a></div></div></div>
- <nav class="plan" aria-label="코너 이동">${ZON.map((z,i)=>`<button type="button" data-z="${i}">${z[0]}</button>`).join('')}</nav>`;
- el.innerHTML=h;
- const st=$('.stage',el),wd=$('.world',el);
- const fit=()=>{const sc=Math.max(.46,st.clientHeight/720);wd.style.transform=`scale(${sc})`;wd.dataset.sc=sc;wd.parentElement.style.setProperty('--sc',sc);$('.sizer',el)?.remove();const sz=document.createElement('div');sz.className='sizer';sz.style.width=WW*sc+'px';st.appendChild(sz)};
- addEventListener('resize',fit);el._fit=fit;fit();
- const mark=()=>{const sc=+wd.dataset.sc,c=(st.scrollLeft+st.clientWidth/2)/sc;let k=0;ZX.forEach((x,i)=>{if(c>=x)k=i});$$('.plan button',el).forEach((b,i)=>b.classList.toggle('on',i===k))};
- st.addEventListener('scroll',mark,{passive:true});mark();
- $('.plan',el).onclick=e=>{const b=e.target.closest('[data-z]');if(!b)return;st.scrollTo({left:ZX[+b.dataset.z]*+wd.dataset.sc,behavior:'smooth'})};
- let dn=false,sx=0,sl=0,mv=0;
- st.addEventListener('pointerdown',e=>{if(e.pointerType!=='mouse')return;dn=true;sx=e.clientX;sl=st.scrollLeft;mv=0});
- addEventListener('pointermove',e=>{if(!dn)return;mv=Math.abs(e.clientX-sx);if(mv>4)st.scrollLeft=sl-(e.clientX-sx)});
- addEventListener('pointerup',()=>{dn=false});
- st.addEventListener('click',e=>{if(mv>6){e.stopPropagation();e.preventDefault();mv=0}},true);
- el._go=id=>{const b=$(`[data-w="${id}"]`,el);if(!b)return;const r=b.getBoundingClientRect(),sr=st.getBoundingClientRect();st.scrollLeft+=r.left+r.width/2-sr.left-st.clientWidth/2;return b};
+ el.innerHTML=`<div class="wall3">${COLS.map((c,i)=>`<section class="col"><div class="colh"><h2>${c[0]}<small>${c[1]}</small></h2><p>${c[2]}</p></div><div class="cells">${c[3].map(id=>{const s=WEP.find(x=>x.id===id);return `<button class="wp ${id==='brand'?'main':''}" type="button" data-w="${s.id}" aria-label="${s.w}: ${s.n}. 상품 미리보기"><span class="fig" style="--r:${s.r}deg" data-hx="${s.hk[0]}" data-hy="${s.hk[1]}"><i class="hk"></i><img src="w/${s.img}.${s.ext}" alt="" draggable="false" width="520" height="400"></span><span class="pl">${s.n}</span></button>`}).join('')}</div></section>`).join('')}</div>`;
+ const hooks=()=>$$('.fig',el).forEach(placeHook);
+ $$('.fig img',el).forEach(i=>{i.complete?placeHook(i.parentElement):i.addEventListener('load',()=>placeHook(i.parentElement))});
+ el._fit=hooks;addEventListener('resize',hooks);
+ el._go=id=>{const b=$(`[data-w="${id}"]`,el);if(b)b.scrollIntoView({block:'center',behavior:'instant'});return b};
 }
 const orgList=()=>`<h2 class="h2">서비스 목록</h2><div class="olist">${WEP.map(s=>`<button type="button" data-d="${s.id}"><b>${s.n}</b><span>${s.k==='p'?'디자인 + 인쇄 · 위탁배송':'스픽스 제공'}</span><u>${PCHK(s.price)}</u></button>`).join('')}</div>`;
 const pv=document.createElement('div');pv.id='pv';pv.hidden=true;document.body.appendChild(pv);
 let pvT,pvCur=null;
 function showPv(b){clearTimeout(pvT);const s=WEP.find(x=>x.id===b.dataset.w);pvCur=b;
- pv.innerHTML=`<div class="pvf"><img src="w/${s.img}.${s.ext}" alt=""></div><div class="pvb"><em>${s.w}</em><strong>${s.n}</strong><p>${s.one}</p><u>${PCHK(s.price)}</u><span class="pvk">${s.k==='p'?'디자인은 스픽스, 인쇄·배송은 성원애드피아':'스픽스 자사 상품'}</span><button class="btn" type="button" data-d="${s.id}">상품 보기</button></div>`;
+ pv.innerHTML=`<div class="pvf"><img src="w/${s.img}.${s.ext}" alt=""></div><div class="pvb"><em>${s.w}</em><strong>${s.n}</strong><p>${s.one}</p><u>${PCHK(s.price)}</u>${PROOF[s.id]&&s.id==='agency'?`<span class="pvp">${PROOF[s.id]}</span>`:''}<span class="pvk">${s.k==='p'?'디자인은 스픽스, 인쇄·배송은 성원애드피아':'스픽스 자사 상품'}</span><div class="pva"><button class="btn" type="button" data-d="${s.id}">상품 보기</button><a class="btn g" href="#/contact/${s.id==='diag'?'diagnosis':'weapon'}/${s.id}">이 무기로 상담</a></div><button class="pvx" type="button" aria-label="미리보기 닫기">닫기</button></div>`;
  pv.hidden=false;const r=b.getBoundingClientRect(),W2=pv.offsetWidth,H2=pv.offsetHeight;
  let x=r.right+10;if(x+W2>innerWidth-10)x=r.left-W2-10;if(x<10)x=Math.max(10,Math.min(innerWidth-W2-10,r.left));
  let y=r.top+r.height/2-H2/2;y=Math.max(100,Math.min(innerHeight-H2-10,y));pv.style.left=x+'px';pv.style.top=y+'px';b.classList.add('hot')}
@@ -551,8 +585,11 @@ function hidePv(){pvT=setTimeout(()=>{pv.hidden=true;pvCur?.classList.remove('ho
 document.addEventListener('pointerover',e=>{const b=e.target.closest?.('.wp');if(b&&e.pointerType==='mouse')showPv(b)});
 document.addEventListener('pointerout',e=>{const b=e.target.closest?.('.wp');if(b&&e.pointerType==='mouse')hidePv()});
 pv.addEventListener('pointerenter',()=>clearTimeout(pvT));pv.addEventListener('pointerleave',hidePv);
-document.addEventListener('focusin',e=>{const b=e.target.closest?.('.wp');if(b)showPv(b)});
-document.addEventListener('click',e=>{const b=e.target.closest('.wp');if(b){if(pvCur===b&&!pv.hidden&&matchMedia('(hover:none)').matches)return;showPv(b);return}const d=e.target.closest('[data-d]');if(d){pv.hidden=true;openS(d.dataset.d);return}if(!e.target.closest('#pv')&&!pv.hidden)hidePv()});
+let quiet=false;
+document.addEventListener('focusin',e=>{const b=e.target.closest?.('.wp');if(b&&!quiet)showPv(b)});
+document.addEventListener('click',e=>{const b=e.target.closest('.wp');if(b){if(pvCur===b&&!pv.hidden&&matchMedia('(hover:none)').matches)return;showPv(b);return}const d=e.target.closest('[data-d]');if(d){pv.hidden=true;openS(d.dataset.d);return}if(e.target.closest('.pvx')){closePv();return}if(!e.target.closest('#pv')&&!pv.hidden)hidePv()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!pv.hidden)closePv()});
+function closePv(){const b=pvCur;pv.hidden=true;b?.classList.remove('hot');pvCur=null;quiet=true;b?.focus();quiet=false}
 $$('[data-shelf]').forEach(wall);
 
 /* 프로젝트 */
@@ -634,39 +671,42 @@ $$('[data-act]').forEach(el=>el.innerHTML=`<h2 class="h2 rv">세 번이면 시�
 /* 서랍 */
 const dr=$('#dr'),dc=$('#dc');
 function openS(id){const s=WEP.find(x=>x.id===id),org=document.body.classList.contains('org');
- const cta=id==='diag'?['내 아이템 진단받기','diagnosis']:['무기 상담 신청','weapon'];
- dc.innerHTML=`<div class="dfig"><img src="w/${s.img}.${s.ext}" alt=""></div><div class="dbody"><div>${org?'':`<em>${s.w}</em>`}<h2 id="dtitle">${s.n}</h2><p class="one">${s.one}</p></div><div class="price">${PCHK(s.price)}</div><div><h3>어떻게 만드나</h3><ul><li>${s.k==='p'?'디자인은 스픽스, 인쇄와 배송은 성원애드피아 공장 직배송':'스픽스가 직접 만듭니다'}</li></ul></div><p class="need" style="height:auto;min-height:90px">필요한 사진: ${s.n} 실제 결과물</p><a class="btn" href="#/contact/${cta[1]}">${cta[0]}</a></div>`;dr.showModal();dc.scrollTop=0;$('#dx').focus()}
+ const cta=id==='diag'?['내 아이템 진단받기','diagnosis/diag']:[org?'상담 신청':'이 무기로 상담',`weapon/${id}`];
+ dc.innerHTML=`<div class="dfig"><img src="w/${s.img}.${s.ext}" alt=""></div><div class="dbody"><div>${org?'':`<em>${s.w}</em>`}<h2 id="dtitle">${s.n}</h2><p class="one">${s.one}</p></div><div class="price">${PCHK(s.price)}</div><div><h3>어떻게 만드나</h3><ul><li>${s.k==='p'?'디자인은 스픽스, 인쇄와 배송은 성원애드피아 공장 직배송':'스픽스가 직접 만듭니다'}</li></ul></div>${PROOF[s.id]&&s.id==='agency'?`<div><h3>결과</h3><ul><li>${PROOF[s.id]}</li></ul></div>`:''}<p class="need" style="height:auto;min-height:90px">필요한 사진: ${s.n} 실제 결과물</p><a class="btn" href="#/contact/${cta[1]}">${cta[0]}</a></div>`;dr.showModal();dc.scrollTop=0;$('#dx').focus()}
 function openP(i){const p=P[i];
  dc.innerHTML=`<div class="dfig ${p.img?'full':''}">${p.img?`<img src="img/${p.img}.jpg" alt="${p.n}">`:`<div class="need">필요한 사진: ${p.need}</div>`}</div><div class="dbody"><div><em>${T[p.t]}</em><h2 id="dtitle">${p.n}</h2></div><dl class="dl"><div><dt>발주처</dt><dd>${p.c||NO}</dd></div><div><dt>용역 유형</dt><dd>${T[p.t]}</dd></div><div><dt>결과물</dt><dd>${p.k}</dd></div><div><dt>연도</dt><dd>${p.y||NO}</dd></div>${p.num?`<div><dt>숫자</dt><dd>${p.num}</dd></div>`:''}${p.o?`<div><dt>비고</dt><dd>${p.o}</dd></div>`:''}</dl><a class="btn" href="#/contact/proposal">이런 일 제안 요청하기</a></div>`;dr.showModal();$('#dx').focus()}
 $('#dx').onclick=()=>dr.close();
 dr.addEventListener('click',e=>{if(e.target===dr)dr.close();if(e.target.closest('a'))dr.close()});
-document.addEventListener('click',e=>{const c=e.target.closest('.cd');if(c)openP(+c.dataset.p);const ent=e.target.closest('[data-entry]');if(ent)setOrg(ent.dataset.entry==='org');if(e.target.closest('[data-home]'))setOrg(false)});
+document.addEventListener('click',e=>{const c=e.target.closest('.cd');if(c)openP(+c.dataset.p);const ent=e.target.closest('[data-entry]');if(ent){ENTRY=ent.dataset.entry;setOrg(ENTRY==='org');applyEntry();if(ENTRY==='start'){const tc=$('#topcta');tc.textContent='내 아이템 진단받기';tc.href='#/contact/diagnosis'}}if(e.target.closest('[data-home]')){ENTRY=null;setOrg(false);applyEntry()}});
 
 /* 기관 입구 화면 */
-function setOrg(on){document.body.classList.toggle('org',on);const sv=$('.page[data-p=service] [data-shelf]');if(on){sv.innerHTML=orgList();sv.classList.add('orgv')}else if(sv.classList.contains('orgv')){sv.classList.remove('orgv');wall(sv)}const tc=$('#topcta');tc.textContent=on?'제안 요청하기':'무기 상담 신청';tc.href=on?'#/contact/proposal':'#/contact/weapon';$$('[data-act] ol li:nth-child(3) h3').forEach(h=>h.textContent=on?'맡을 범위를 정합니다.':'맞는 무기를 정합니다.');$$('[data-act] .cta a[href$=weapon]').forEach(a=>a.hidden=on);$$('[data-act] .cta a[href$=diagnosis]').forEach(a=>a.hidden=on)}
-$('#orgoff').onclick=()=>setOrg(false);
+let ENTRY=null;
+function applyEntry(){const map={biz:'weapon',start:'diagnosis',org:'proposal'},pick=map[ENTRY];$$('[data-act] .cta').forEach(c=>{const as=$$('a',c);as.forEach(a=>{const on=!pick||a.getAttribute('href').endsWith(pick);a.dataset.c=a.dataset.c||a.className;a.hidden=pick?!on:false;a.className=pick?'btn':a.dataset.c})})}
+function setOrg(on){document.body.classList.toggle('org',on);const sv=$('.page[data-p=service] [data-shelf]');if(on){sv.innerHTML=orgList();sv.classList.add('orgv')}else if(sv.classList.contains('orgv')){sv.classList.remove('orgv');wall(sv)}const tc=$('#topcta');tc.textContent=on?'제안 요청하기':'무기 상담 신청';tc.href=on?'#/contact/proposal':'#/contact/weapon';$$('[data-act] ol li:nth-child(3) h3').forEach(h=>h.textContent=on?'맡을 범위를 정합니다.':'맞는 무기를 정합니다.');}
+$('#orgoff').onclick=()=>{ENTRY=null;setOrg(false);applyEntry()};
 
 /* 상담 */
 const CT={weapon:['무기 상담 신청','맞는 무기를 함께 정합니다. 상담은 무료입니다.'],diagnosis:['내 아이템 진단받기','시작하기 전에 한 번 울려 봅니다. 심사해 본 눈으로 판정서 한 장을 보냅니다.'],proposal:['제안 요청하기','사업 내용을 알려 주시면 기획부터 납품까지 맡을 범위를 제안합니다.']};
 let cType='weapon';
-function setC(t){cType=CT[t]?t:'weapon';$('#ctitle').textContent=CT[cType][0];$('#clead').textContent=CT[cType][1];$('#send').textContent=CT[cType][0];$('#types').innerHTML=Object.keys(CT).map(k=>`<button type="button" data-k="${k}" aria-pressed="${k===cType}">${CT[k][0]}</button>`).join('');$('#done').hidden=true}
+function setC(t,w){cType=CT[t]?t:'weapon';$$('[data-only]').forEach(x=>x.hidden=x.dataset.only!==cType);$('#l1').textContent=cType==='proposal'?'기관 · 담당자':'이름 · 분야';const pk=$('#pick'),sw=WEP.find(x=>x.id===w);pk.hidden=!sw;if(sw)pk.innerHTML=`고른 상품: <b>${sw.n}</b>`;$('#ctitle').textContent=CT[cType][0];$('#clead').textContent=CT[cType][1];$('#send').textContent=CT[cType][0];$('#types').innerHTML=Object.keys(CT).map(k=>`<button type="button" data-k="${k}" aria-pressed="${k===cType}">${CT[k][0]}</button>`).join('');$('#done').hidden=true}
 $('#types').onclick=e=>{const b=e.target.closest('[data-k]');if(b)location.hash='#/contact/'+b.dataset.k};
 $$('.chips').forEach(c=>c.onclick=e=>{const b=e.target.closest('button');if(!b)return;$$('button',c).forEach(x=>x.setAttribute('aria-pressed',x===b))});
 $$('.chips button').forEach(b=>b.setAttribute('aria-pressed','false'));
-$('#fm').onsubmit=e=>{e.preventDefault();$('#done').hidden=false};
+$('#fm').onsubmit=e=>{e.preventDefault();let first=null;[['f1','e1',v=>v.trim().length>0],['f2','e2',v=>/^0\d{1,2}-?\d{3,4}-?\d{4}$/.test(v.trim())]].forEach(([i,er,ok])=>{const el=$('#'+i),good=ok(el.value);$('#'+er).hidden=good;el.setAttribute('aria-invalid',!good);if(!good&&!first)first=el});if(first){first.focus();$('#done').hidden=true;return}$('#done').hidden=false};
+$$('#fm input').forEach(i=>i.addEventListener('input',()=>{const m={f1:'e1',f2:'e2'}[i.id];if(m&&!$('#'+m).hidden){$('#'+m).hidden=true;i.removeAttribute('aria-invalid')}}));
 
 /* 길찾기 */
 const TITLES={home:'스픽스(SPIX) — 내 사업에 맞는 무기를 찾고, 만들고, 씁니다',about:'소개 — 스픽스',service:'서비스 — 스픽스',project:'프로젝트 — 스픽스',space:'공간 브랜드 — 스픽스',press:'언론 — 스픽스',contact:'상담 — 스픽스'};
 const io=('IntersectionObserver'in window)?new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add('on');io.unobserve(x.target)}}),{rootMargin:'0px 0px -6% 0px'}):null;
 function route(){
- const [,p='',sub]=(location.hash||'#/').split('/');const name=TITLES[p]?p:'home';
+ const [,p='',sub,third]=(location.hash||'#/').split('/');const name=TITLES[p]?p:'home';
  if(dr.open)dr.close();
  $$('.page').forEach(x=>x.hidden=x.dataset.p!==name);
  document.title=TITLES[name];
  $$('#menu a').forEach(a=>{const on=a.getAttribute('href')==='#/'+name;on?a.setAttribute('aria-current','page'):a.removeAttribute('aria-current')});
  $('#menu').classList.remove('open');$('#burger').setAttribute('aria-expanded','false');
  window.scrollTo({top:0,behavior:'instant'});
- if(name==='contact')setC(sub||cType);
+ if(name==='contact')setC(sub||cType,third);
  const pg=$(`.page[data-p="${name}"]`);
  if(io)$$('.rv:not(.on)',pg).forEach(el=>io.observe(el));else $$('.rv',pg).forEach(el=>el.classList.add('on'));
  if(pg.querySelector('[data-shelf]'))$$('[data-shelf]',pg).forEach(x=>x._fit&&x._fit());
