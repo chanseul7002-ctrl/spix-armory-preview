@@ -212,7 +212,7 @@ main{padding-top:var(--top)}
 /* 기관 */
 body.org .wf{display:none!important}
 body:not(.org) .of{display:none!important}
-.types5{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-top:28px}
+.types5{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:28px}
 .types5 a{display:flex;flex-direction:column;gap:6px;background:var(--surface);padding:18px;min-height:150px}
 .types5 a:hover{background:var(--surface2)}
 .types5 b{font-weight:800;font-size:19px}
@@ -246,6 +246,16 @@ body:not(.org) .of{display:none!important}
 .cd .m{display:block;font-size:15px;line-height:1.4;color:var(--soft);margin-top:4px}
 .cd .n{display:block;font-weight:800;font-size:15px;margin-top:4px}
 .empty{padding:40px var(--pad) 100px;font-weight:700}
+.cd .ph{position:relative}
+.gc{position:absolute;right:8px;bottom:8px;font-style:normal;font-weight:700;font-size:13px;background:rgba(0,0,0,.75);padding:3px 8px}
+.left{padding:0 var(--pad) 100px}.left[hidden]{display:none}
+.left h2{font-weight:800;font-size:clamp(20px,2vw,28px)}.left p{color:var(--muted);font-size:15px;margin-top:4px}
+.leftg{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-top:16px}
+.leftg img{width:100%;aspect-ratio:4/3;object-fit:cover;background:var(--surface)}
+.leftg figcaption{font-size:13px;color:var(--muted);margin-top:4px}
+.thumbs{display:flex;gap:6px;padding:8px 32px 0;overflow-x:auto}
+.thumbs button{flex:none;width:72px;height:54px;outline-offset:1px}.thumbs img{width:100%;height:100%;object-fit:cover;opacity:.6}
+.thumbs button[aria-pressed=true] img{opacity:1;outline:2px solid var(--blue-text)}
 
 /* 공간 */
 .sp{display:grid;grid-template-columns:1.25fr 1fr;min-height:min(74vh,700px)}
@@ -353,6 +363,7 @@ dialog::backdrop{background:rgba(0,0,0,.72)}
  .burger{display:block}
  .cards{grid-template-columns:repeat(3,1fr)}
  .types5{grid-template-columns:repeat(3,1fr)}
+ .leftg{grid-template-columns:repeat(3,1fr)}
  .wall3{height:auto;grid-template-columns:1fr 1fr;gap:18px}.cells{grid-template-rows:220px 170px}
 }
 /* 휴대폰 */
@@ -387,6 +398,7 @@ dialog::backdrop{background:rgba(0,0,0,.72)}
  .act .steps li{padding:18px 0 0}
  .cards{grid-template-columns:1fr 1fr}
  .types5{grid-template-columns:1fr 1fr}
+ .leftg{grid-template-columns:1fr 1fr}
  .sp,.sp:nth-child(even){grid-template-columns:1fr;min-height:0}
  .sp:nth-child(even) .sp-t{order:0}
  .sp .pic{aspect-ratio:4/3;min-height:0}
@@ -499,7 +511,7 @@ dialog::backdrop{background:rgba(0,0,0,.72)}
         <ul class="aw"><li>대한민국동물보호대상</li><li>행정안전부 장관상 2년 연속</li><li>교육부 장관상</li><li>전남도지사상</li></ul>
         <ul class="aw sm"><li>전국청년창업 아이디어경진대회 최우수상 · 주민주도 섬 발전 우수사례 발표대회 대상</li><li>한겨레21 표지 · SBS TV동물농장 · 내셔널지오그래픽 마이펫TV · MBC 어영차바다</li></ul>
       </div>
-      <div class="pic"><div class="need">필요한 사진: 대표 사진</div></div>
+      <div class="pic"><img src="img/old/15_010.jpg" alt="대표 이찬슬" loading="lazy" width="800" height="1000" style="object-position:50% 25%"></div>
     </div>
   </section>
   <section class="sec" style="padding-top:0">
@@ -530,10 +542,11 @@ dialog::backdrop{background:rgba(0,0,0,.72)}
 
 <!-- 프로젝트 -->
 <div class="page" data-p="project" hidden>
-  <div class="pagehead" style="padding-bottom:20px"><h1>어떤 기관의, 어떤 일을, 무엇으로 납품했나.</h1><p class="cta" style="margin-top:16px"><a class="btn" data-cta="project" href="#/contact/proposal">제안 요청하기</a></p></div>
+  <div class="pagehead" style="padding-bottom:20px"><h1>어떤 기관의, 어떤 일을, 무엇으로 했나.</h1><p class="lead" style="margin-top:12px">옛 스픽스 사이트의 기록까지 종류별로 모았습니다.</p><p class="cta" style="margin-top:16px"><a class="btn" data-cta="project" href="#/contact/proposal">제안 요청하기</a></p></div>
   <div class="clients"><h2>발주처</h2><div id="clients"></div></div>
   <div class="tabs" id="tabs" role="group" aria-label="용역 유형"></div>
   <div class="cards" id="cards" aria-live="polite"></div>
+  <section class="left" id="left"><h2>옛 사이트에서 옮긴 현장 사진</h2><p>어느 사업 사진인지 확인되면 위 카드로 옮깁니다.</p><div class="leftg" id="leftg"></div></section>
 </div>
 
 <!-- 공간 -->
@@ -701,40 +714,69 @@ const dr=$('#dr'),dc=$('#dc');
 function openS(id,from){const s=W(id),c=s.cta||['이 무기로 상담','weapon'];
  dc.innerHTML=`<div class="dfig"><img src="w/${s.img}.webp" alt="" width="520" height="400"></div><div class="dbody"><div><span class="w">${s.w}${s.main?' · 먼저 권함':''}</span><h2 id="dtitle">${s.n}</h2><p class="one">${s.one}</p></div><div class="price">${PCK(s.price)}${s.tag?`<small>${s.tag}</small>`:''}</div><div><h3>받는 것</h3><ul>${s.get.map(g=>`<li>${PCK(g)}</li>`).join('')}${(s.more||[]).map(g=>`<li>${PCK(g)}</li>`).join('')}</ul></div><div><h3>누가 만드나</h3><ul><li>${s.p?'디자인은 스픽스, 인쇄와 배송은 성원애드피아 공장에서 바로 보냅니다.':'스픽스가 직접 만들고, 대표가 직접 봅니다.'}</li></ul></div>${s.proof?`<div><h3>있었던 일</h3><ul><li>${s.proof.replace('사례: ','')}</li></ul></div>`:''}<p class="dneed">필요한 사진: ${s.n} 실제 결과물</p><a class="btn" data-cta="drawer" href="#/contact/${c[1]}/${s.id}">${c[0]}</a><span class="vow">${s.vow||'상담 무료 · 진행하지 않으면 예약금 전액 환불'}</span>${s.main?'<p class="one" style="margin:0;font-weight:700;color:#fff">광고비는 멈추는 날 끝납니다. 이름은 남습니다.</p>':''}</div>`;
  dr.showModal();dc.scrollTop=0;$('#dx').focus();track('weapon_detail_open',{weapon:id,from})}
-function openP(i){const p=P[i];
- dc.innerHTML=`<div class="dfig ${p.img?'full':''}">${p.img?`<img src="img/${p.img}.jpg" alt="${p.n}">`:`<div class="need">필요한 사진: ${p.need}</div>`}</div><div class="dbody"><div><span class="w">${T[p.t]}</span><h2 id="dtitle">${p.n}</h2></div><dl class="dl"><div><dt>발주처</dt><dd>${p.c||CK}</dd></div><div><dt>용역 유형</dt><dd>${T[p.t]}</dd></div><div><dt>결과물</dt><dd>${p.k}</dd></div><div><dt>연도</dt><dd>${p.y||CK}</dd></div>${p.num?`<div><dt>숫자</dt><dd>${p.num}</dd></div>`:''}${p.o?`<div><dt>비고</dt><dd>${p.o}</dd></div>`:''}</dl><a class="btn" data-cta="project" href="#/contact/proposal">이런 일 제안 요청하기</a></div>`;dr.showModal();$('#dx').focus()}
+function openP(i){const p=P[i],all=p.img?[p.img,...(p.g||[])]:[];
+ dc.innerHTML=`<div class="dfig ${p.img?'full':''}">${p.img?`<img id="dmain" src="${pimg(p.img)}" alt="${p.n}">`:`<div class="need">필요한 사진: ${p.need}</div>`}</div>${all.length>1?`<div class="thumbs">${all.map((x,j)=>`<button type="button" data-ph="${x}" aria-label="사진 ${j+1}"${j?'':' aria-pressed="true"'}><img src="${pimg(x)}" alt="" loading="lazy"></button>`).join('')}</div>`:''}<div class="dbody"><div><span class="w">${p.c.map(i=>T[i]).join(' · ')}</span><h2 id="dtitle">${p.n}</h2></div><dl class="dl"><div><dt>발주처</dt><dd>${p.cl||CK}</dd></div><div><dt>종류</dt><dd>${p.c.map(i=>T[i]).join(', ')}</dd></div><div><dt>결과물</dt><dd>${p.k}</dd></div><div><dt>연도</dt><dd>${p.y||CK}</dd></div>${p.num?`<div><dt>숫자</dt><dd>${p.num}</dd></div>`:''}${p.o?`<div><dt>비고</dt><dd>${p.o}</dd></div>`:''}</dl><a class="btn" data-cta="project" href="#/contact/proposal">이런 일 제안 요청하기</a></div>`;dr.showModal();$('#dx').focus()}
+dc.addEventListener('click',e=>{const t=e.target.closest('[data-ph]');if(!t)return;$('#dmain').src=pimg(t.dataset.ph);$$('.thumbs button',dc).forEach(b=>b.setAttribute('aria-pressed',b===t))});
 let lastCard=null;
 $('#dx').onclick=()=>dr.close();
 dr.addEventListener('click',e=>{if(e.target===dr)dr.close();if(e.target.closest('a'))dr.close()});
 dr.addEventListener('close',()=>{const t=lastWp||lastCard;if(t?.isConnected&&!location.hash.startsWith('#/contact')){quiet=true;t.focus({preventScroll:true});quiet=false};lastWp=null;lastCard=null});
 
 /* 프로젝트 */
-const T=['브랜딩·기획','영상·콘텐츠','출판·기록','축제·행사','교육·플랫폼'];
+const T=['브랜딩·홍보','연구·컨설팅','공간 기획·운영','지역 프로젝트','교육 프로그램','전시·출판·미디어','창업 지원'];
+const TD=['브랜드 필름, 웹사이트, 홍보물, 쇼츠','청년마을 평가, 교육 컨설팅','폐교·빈집을 고쳐 직접 연 공간','청년마을, 축제, 트레킹, 커뮤니티','로컬 창업 교육, 동물 교육, 강연','전시, 책, 매거진, 영상','직접 창업과 창업 교육'];
 const NO=CK;
+const O=f=>'old/'+f;
+/* c = 종류(여러 개 가능) · img = 대표 사진 · g = 서랍 사진 · 옛 사이트 사진은 old/ */
 const P=[
-{t:0,n:'주섬주섬 마을 브랜딩',c:'행정안전부',k:'브랜딩, 브랜드 필름, 웹사이트, 굿즈',y:'2021',o:'대표작 · 협업 섬앤썸',img:'zoosome',num:'144곳 중 12곳 선정'},
-{t:0,n:'경북살이 실험실 브랜드 필름',c:'경상북도',k:'브랜드 필름, 홍보물 디자인, 교육 컨설팅',y:'2023',img:'gyeongbuk'},
-{t:0,n:"신안군 'ㄱ'사 브랜드 제작",c:'민간',k:'홈페이지, 영상, 패키지 디자인',y:'2024',need:"'ㄱ'사 홈페이지 화면 또는 패키지"},
-{t:0,n:'신안군 관광 프로그램 기획',c:null,k:'여행투어 프로그램 기획',y:null,need:'신안군 관광 프로그램 현장'},
-{t:1,n:'달리도, 달리보다 기록영상',c:'목포시 문화도시센터',k:'여행 필름, 기록영상',y:'2023',img:'dalifilm'},
-{t:1,n:'목포 문화도시 다큐멘터리',c:'목포시 문화도시센터',k:'다큐멘터리 제작',y:'2023',need:'목포 문화도시 다큐멘터리 장면'},
-{t:1,n:'목포 문화도시 홍보영상',c:'목포시',k:'홍보영상',y:'2020',img:'mokpo'},
-{t:1,n:'생태도감 예능형 교육영상',c:'전남문화재단',k:'교육영상 콘텐츠, 교재 개발(동물사전)',y:null,img:'ecology'},
-{t:1,n:'지역문화인력양성교육 콘텐츠',c:'문화체육관광부',k:'비대면 스트리밍, 홍보영상',y:'2021~2022',o:'뜨거운상징과 수행',need:'도도한 문화학교 영상 장면'},
-{t:1,n:'경상북도 청년정책 행사 영상',c:'경상북도',k:'행사영상 제작',y:null,need:'경상북도 청년정책 행사 영상 장면'},
-{t:1,n:'내일로 나아가는 방법 컨퍼런스',c:'행정안전부',k:'행사영상, 비대면 컨퍼런스, 사회 진행',y:null,o:'어나더랜드와 수행',need:'컨퍼런스 현장'},
-{t:1,n:"해외수출용 콘텐츠 'ㅁ'사 쇼츠",c:'민간',k:'해외 콘텐츠 쇼츠, 라이브커머스',y:null,num:'쇼츠 10편',need:"'ㅁ'사 쇼츠 장면"},
-{t:1,n:'김준호와의 굿즈 쇼핑 라이브',c:null,k:'라이브커머스',y:null,need:'쇼핑 라이브 화면'},
-{t:2,n:'매거진 〈달리도, 달리보다〉',c:'목포시 문화도시센터',k:'섬 매거진, 책 디자인, 아카이브, 연구',y:'2022',img:'magazine',num:'섬 하나 × 기록 활동 7회 = 100부'},
-{t:2,n:'달리도, 달리보다 홍보물',c:'목포시 문화도시센터',k:'SNS 홍보물 디자인',y:'2022',img:'dalicard'},
-{t:2,n:'주섬주섬 항해록',c:'자체 출판',k:'청년마을 사례집',y:null,img:'hanghae'},
-{t:3,n:'퍼플산타축제',c:'한국관광공사',k:'축제 기획, 포스터, 모객',y:'2022',img:'purple',num:'목표 200명에 방문객 300명'},
-{t:3,n:'솔티 크리스마스 축제',c:null,k:'지역축제 기획, 홍보물',y:'2022',img:'salty',num:'지역축제 3회, 관람객 약 2,000명'},
-{t:3,n:'섬티아고 섬 트레킹',c:'행정안전부',k:'로컬 트립 기획, 홍보물',y:'2022',img:'santiago'},
-{t:4,n:'로컬 창업 교육 플랫폼',c:'행정안전부',k:'교육 플랫폼 개발, 강연영상 제작',y:'2022~2023',img:'lecture'},
-{t:4,n:'비대면 공연전시 플랫폼',c:'목포문화재단',k:'메이킹 필름, 비대면 온라인 전시',y:'2020',o:'협업 섬앤썸',need:'비대면 공연전시 플랫폼 화면'},
+{c:[0,3],n:'주섬주섬 마을 브랜딩',cl:'행정안전부',k:'브랜딩, 브랜드 필름, 웹사이트, 굿즈',y:'2021',o:'대표작 · 협업 섬앤썸',img:O('20_028'),g:[O('20_027'),O('16_022')],num:'144곳 중 12곳 선정'},
+{c:[0,1],n:'경북살이 청년실험실',cl:'경상북도',k:'브랜드 필름, 홍보물 디자인, 교육 컨설팅',y:'2023',img:'gyeongbuk',g:[O('28_063')]},
+{c:[0],n:"신안군 'ㄱ'사 브랜드 제작",cl:'민간',k:'홈페이지, 영상, 패키지 디자인',y:'2024',need:"'ㄱ'사 홈페이지 화면 또는 패키지"},
+{c:[0],n:'달리도, 달리보다 홍보물',cl:'목포시 문화도시센터',k:'SNS 홍보물 디자인',y:'2022',img:'dalicard'},
+{c:[0],n:"해외수출용 콘텐츠 'ㅁ'사 쇼츠",cl:'민간',k:'해외 콘텐츠 쇼츠, 라이브커머스',y:null,num:'쇼츠 10편',need:"'ㅁ'사 쇼츠 장면"},
+{c:[0],n:'김준호와의 굿즈 쇼핑 라이브',cl:null,k:'라이브커머스',y:null,need:'쇼핑 라이브 화면'},
+{c:[0,5],n:'크레의 정원 웹사이트',cl:null,k:'웹사이트 디자인',y:null,img:O('32_106')},
+{c:[1],n:'청년마을 평가·컨설팅',cl:'행정안전부',k:'청년마을 심사·평가, 컨설팅',y:'2023',img:O('28_067'),g:[O('28_066')],o:'행정안전부 청년마을 심사위원'},
+{c:[1],n:'목포 문화도시 교육',cl:null,k:'문화도시 교육·워크숍',y:null,img:O('28_062')},
+{c:[1,4],n:'지역문화인력양성교육 (도도한 문화학교)',cl:'문화체육관광부',k:'비대면 스트리밍, 홍보영상',y:'2021~2022',o:'뜨거운상징과 수행',need:'도도한 문화학교 영상 장면'},
+{c:[2],n:'우실동물숲',cl:'자체',k:'폐교 리노베이션 · 동물테마파크 · 미술관 · 로컬카페',y:'2021',img:O('21_035'),g:['ulsil',O('21_033'),O('29_072')],o:'세계 최초 폐교 동물테마파크'},
+{c:[2],n:'주섬주섬 게스트하우스',cl:'자체',k:'빈집 리노베이션 · 게스트하우스',y:'2021',img:O('27_042'),g:['guest']},
+{c:[2],n:'로컬카페 기브미썸',cl:null,k:'공간·브랜드 리뉴얼 · 로컬카페',y:null,img:O('27_043')},
+{c:[2],n:'무안의숲',cl:'자체',k:'펫복합문화공간 · 느린거북이 · 느린재즈 · 느린커피',y:'2024',img:'muan',g:[O('16_021')]},
+{c:[2],n:'우실문고',cl:null,k:'라운지 · 커뮤니티 · 작은 도서관',y:null,img:O('30_088')},
+{c:[3],n:'주섬주섬 버킷리스트 프로젝트',cl:null,k:'청년 체류 · 버킷리스터 모집',y:null,img:O('15_001'),g:[O('27_039')],o:'주섬주섬마을'},
+{c:[3],n:'솔티 크리스마스 축제',cl:null,k:'지역축제 기획, 홍보물',y:'2022',img:'salty',g:[O('27_046'),O('27_049')],num:'지역축제 3회, 관람객 약 2,000명'},
+{c:[3],n:'퍼플산타축제',cl:'한국관광공사',k:'축제 기획, 포스터, 모객',y:'2022',img:'purple',num:'목표 200명에 방문객 300명'},
+{c:[3],n:'섬티아고 섬 트레킹',cl:'행정안전부',k:'로컬 트립 기획, 홍보물',y:'2022',img:'santiago',g:[O('27_047')]},
+{c:[3],n:'섬인어게인',cl:null,k:'지역 커뮤니티 공연',y:'2021',img:O('27_061')},
+{c:[3],n:'동물의 섬 · 마을 버킷리스트 프로젝트',cl:null,k:'실사판 동물의 숲 · 참여자 모집',y:null,img:O('27_045')},
+{c:[3],n:'신안군 관광 프로그램 기획',cl:null,k:'여행투어 프로그램 기획',y:null,need:'신안군 관광 프로그램 현장'},
+{c:[4,6],n:'로컬 창업 교육 플랫폼 (로컬대학)',cl:'행정안전부',k:'교육 플랫폼 개발, 강연영상 제작',y:'2022~2023',img:'lecture',g:[O('16_020'),O('27_048')]},
+{c:[4],n:'로컬·청년마을 강연',cl:null,k:'강연 · 발표 (SK SOVAC 2022 외)',y:'2022',img:O('15_008'),g:[O('15_004'),O('20_029'),O('15_006')]},
+{c:[4],n:'동물들아 나랑 미술친구할래?',cl:null,k:'동물 · 미술 교육 프로그램',y:null,img:O('21_034'),g:[O('21_037')]},
+{c:[4],n:'앵프터스쿨 전시회',cl:null,k:'방과 후 동물 교육 · 결과 전시',y:null,img:O('33_111'),g:[O('33_110'),O('33_109')]},
+{c:[4],n:'목포 자유학기 동물 교육',cl:null,k:'자유학기 체험 교육',y:'2016',img:O('16_016'),g:[O('16_013')]},
+{c:[5],n:'매거진 〈달리도, 달리보다〉',cl:'목포시 문화도시센터',k:'섬 매거진, 책 디자인, 아카이브, 연구',y:'2022',img:'magazine',g:[O('30_083')],num:'섬 하나 × 기록 활동 7회 = 100부'},
+{c:[5],n:'달리도, 달리보다 기록영상',cl:'목포시 문화도시센터',k:'여행 필름, 기록영상',y:'2023',img:'dalifilm',g:[O('32_096')]},
+{c:[5],n:'주섬주섬 항해록',cl:'자체 출판',k:'청년마을 사례집',y:null,img:'hanghae',g:[O('30_084')]},
+{c:[5],n:'초보 신안 탐구자를 위한 지침서',cl:null,k:'출판 · 책 디자인',y:null,img:O('30_085')},
+{c:[5],n:'앵토피아 색칠하기',cl:'자체 출판',k:'그림책 · 색칠 도안',y:null,img:O('30_086')},
+{c:[5],n:'새들의 밥상',cl:null,k:'출판 · 책 디자인',y:null,img:O('30_087')},
+{c:[5],n:'목포 문화도시 다큐멘터리',cl:'목포시 문화도시센터',k:'다큐멘터리 제작',y:'2023',need:'목포 문화도시 다큐멘터리 장면'},
+{c:[5],n:'목포 문화도시 홍보영상',cl:'목포시',k:'홍보영상',y:'2020',img:'mokpo',g:[O('32_098')]},
+{c:[5,4],n:'생태도감 예능형 교육영상',cl:'전남문화재단',k:'교육영상 콘텐츠, 교재 개발(동물사전)',y:null,img:'ecology',g:[O('32_097')]},
+{c:[5],n:'습지보호지역 지정 영상',cl:null,k:'홍보영상',y:null,img:O('32_099')},
+{c:[5],n:'한·러 문화 실크로드 영상',cl:null,k:'영상 · 웹 아카이브',y:null,img:O('32_100')},
+{c:[5],n:'경상북도 청년정책 행사 영상',cl:'경상북도',k:'행사영상 제작',y:null,need:'경상북도 청년정책 행사 영상 장면'},
+{c:[5],n:'내일로 나아가는 방법 컨퍼런스',cl:'행정안전부',k:'행사영상, 비대면 컨퍼런스, 사회 진행',y:null,o:'어나더랜드와 수행',need:'컨퍼런스 현장'},
+{c:[5],n:'비대면 공연전시 플랫폼',cl:'목포문화재단',k:'메이킹 필름, 비대면 온라인 전시',y:'2020',o:'협업 섬앤썸',need:'비대면 공연전시 플랫폼 화면'},
+{c:[5],n:'전시 기획 (섬마을 비엔날레 외)',cl:null,k:'전시 기획 · 설치',y:'2021',img:O('29_073'),g:[O('29_074'),O('29_075'),O('29_077'),O('29_071'),O('29_078')],o:'사진별 전시 이름 확인 중'},
+{c:[5,0],n:'멸종위기동물 굿즈 in 서울 DDP',cl:null,k:'제품 디자인 · 굿즈 입점',y:null,img:O('29_076')},
+{c:[6],n:'앵무새 트레이닝센터 (직접 창업)',cl:'자체',k:'반려동물 교육 · 동물 체험',y:'2014',img:O('16_017'),g:[O('16_019'),O('16_018'),O('16_015'),O('27_044')]},
+{c:[6],n:'주섬주섬+ 동물카페 창업',cl:null,k:'창업 지원',y:null,need:'주섬주섬+ 창업 현장'},
 ];
-const CL=['행정안전부','문화체육관광부','경상북도','목포시','목포시 문화도시센터','목포문화재단','전남문화재단','한국관광공사','민간'];
+const LEFT=[[1,O('28_064'),'워크숍 현장'],[1,O('28_065'),'워크숍 현장'],[2,O('27_040'),'공간 주변'],[2,O('27_041'),'공간 체험'],[2,O('16_014'),'공간 모임'],[5,O('32_095'),'공연 영상 장면'],[6,O('33_108'),'동물 사진'],[6,O('33_113'),'동물 사진']];
+const CL=['행정안전부','문화체육관광부','경상북도','목포시','목포시 문화도시센터','목포문화재단','전남문화재단','한국관광공사','민간','자체'];
 
 /* 공간 */
 $('#spaces').innerHTML=[
@@ -759,19 +801,22 @@ $('#news').innerHTML=[['서울신문 · 섬 발전 우수사례 대상','2022'],
 
 /* 프로젝트 */
 let fT=-1,fC=null;
-function card(p){const ph=p.img?`<img src="img/${p.img}.jpg" alt="${p.n}" loading="lazy" width="800" height="600">`:`<span class="need">필요한 사진: ${p.need}</span>`;
- return `<button class="cd" data-p="${P.indexOf(p)}" type="button"><span class="ph" style="display:block">${ph}</span><span class="c">${p.c||'발주처 '+CK}</span><span class="t">${p.n}</span><span class="m">${p.k} · ${p.y||'연도 '+CK}</span>${p.num?`<span class="n">${p.num}</span>`:''}</button>`}
+const pimg=x=>`img/${x}.jpg`;
+function card(p){const ph=p.img?`<img src="${pimg(p.img)}" alt="${p.n}" loading="lazy" width="800" height="600">`:`<span class="need">필요한 사진: ${p.need}</span>`;
+ return `<button class="cd" data-p="${P.indexOf(p)}" type="button"><span class="ph" style="display:block">${ph}${p.g?`<i class="gc">사진 ${p.g.length+1}</i>`:''}</span><span class="c">${p.cl||'발주처 '+CK} · ${p.c.map(i=>T[i]).join(', ')}</span><span class="t">${p.n}</span><span class="m">${p.k} · ${p.y||'연도 '+CK}</span>${p.num?`<span class="n">${p.num}</span>`:''}</button>`}
 function renderP(){
- $('#tabs').innerHTML=[['전체',-1],...T.map((t,i)=>[t,i])].map(([t,i])=>`<button type="button" aria-pressed="${fT===i}" data-t="${i}">${t}<sup>${i<0?P.length:P.filter(p=>p.t===i).length}</sup></button>`).join('');
+ $('#tabs').innerHTML=[['전체',-1],...T.map((t,i)=>[t,i])].map(([t,i])=>`<button type="button" aria-pressed="${fT===i}" data-t="${i}">${t}<sup>${i<0?P.length:P.filter(p=>p.c.includes(i)).length}</sup></button>`).join('');
  $('#clients').innerHTML=CL.map(c=>`<button type="button" aria-pressed="${fC===c}" data-c="${c}">${c}</button>`).join('');
- const L=P.filter(p=>(fT<0||p.t===fT)&&(!fC||p.c===fC)).sort((a,b)=>(!!b.img)-(!!a.img));
- $('#cards').innerHTML=L.map(card).join('')||'<p class="empty">이 조건의 프로젝트가 없습니다. 다른 유형을 눌러 보세요.</p>'}
+ const L=P.filter(p=>(fT<0||p.c.includes(fT))&&(!fC||p.cl===fC)).sort((a,b)=>(!!b.img)-(!!a.img));
+ $('#cards').innerHTML=L.map(card).join('')||'<p class="empty">이 조건의 프로젝트가 없습니다. 다른 종류를 눌러 보세요.</p>';
+ const lf=LEFT.filter(x=>fT<0||x[0]===fT);
+ $('#left').hidden=!!fC||!lf.length;
+ $('#leftg').innerHTML=lf.map(x=>`<figure><img src="${pimg(x[1])}" alt="${T[x[0]]} ${x[2]}" loading="lazy" width="800" height="600"><figcaption>${T[x[0]]} · ${x[2]} · 사업 이름 ${CK}</figcaption></figure>`).join('')}
 renderP();
 $('#tabs').onclick=e=>{const b=e.target.closest('[data-t]');if(b){fT=+b.dataset.t;renderP();$('#tabs [aria-pressed=true]').focus()}};
 $('#clients').onclick=e=>{const b=e.target.closest('[data-c]');if(b){fC=fC===b.dataset.c?null:b.dataset.c;renderP()}};
 $('#cards').onclick=e=>{const c=e.target.closest('.cd');if(c){lastCard=c;openP(+c.dataset.p)}};
-const TD=['브랜드 필름, 웹사이트, 굿즈','홍보영상, 다큐, 행사영상','매거진, 사례집, 홍보물','축제 기획, 포스터, 모객','교육 플랫폼, 강연영상'];
-$('#types5').innerHTML=T.map((t,i)=>`<a href="#/project/type-${i}"><b>${t}</b><span>${TD[i]}</span><u>실적 ${P.filter(p=>p.t===i).length}건 보기</u></a>`).join('');
+$('#types5').innerHTML=T.map((t,i)=>`<a href="#/project/type-${i}"><b>${t}</b><span>${TD[i]}</span><u>실적 ${P.filter(p=>p.c.includes(i)).length}건 보기</u></a>`).join('');
 
 /* 증거: 흔한 생각 → 있었던 일 → 무기 */
 $('#proofs').innerHTML=[
