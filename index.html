@@ -7,7 +7,7 @@
 <meta name="theme-color" content="#000000">
 <meta name="color-scheme" content="dark">
 <link rel="preconnect" href="https://cdn.jsdelivr.net">
-<title>스픽스 | 내 사업에 맞는 무기를 정하고, 만들고, 알립니다</title>
+<title>스픽스 | 브랜드 · 홍보물 · 온라인 홍보 · 창업 준비</title>
 <link rel="icon" href="img/symbol.png">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <style>
@@ -70,6 +70,7 @@ main{padding-top:var(--top)}
 .hero{position:relative;min-height:calc(100svh - var(--top));display:grid;grid-template-rows:1fr auto auto;gap:clamp(12px,2.2vh,30px);padding:clamp(16px,3vh,40px) var(--pad) clamp(14px,2.2vh,28px)}
 .hero .msg{display:grid;grid-template-columns:8fr 4fr;gap:24px;align-items:center}
 .sign{display:flex;align-items:center;gap:14px;font-size:clamp(24px,2.6vw,38px)}
+.signsub{font-weight:700;font-size:var(--s-small);color:var(--muted);margin-top:8px;letter-spacing:.02em}
 .hero h1{font-weight:800;font-size:var(--s-display);line-height:1.02;letter-spacing:-.045em;margin-top:clamp(8px,1.6vh,22px)}
 .hero h1 span{display:block;color:var(--blue-text)}
 .hero .sub{font-weight:600;font-size:var(--s-lead);line-height:1.45;color:var(--ink);margin-top:clamp(10px,1.8vh,22px);max-width:34em}
@@ -131,15 +132,17 @@ main{padding-top:var(--top)}
 .ask input{position:absolute;opacity:0;inset:0;cursor:pointer}
 .ask label:has(:checked){background:var(--blue);color:#fff}
 .ask label:has(:focus-visible){outline:2px solid var(--blue-text);outline-offset:2px}
-.wall3{display:grid;grid-template-columns:repeat(3,1fr);gap:0 clamp(8px,1.2vw,18px);height:max(560px,calc(100svh - var(--top) - 210px));margin-top:16px}
+.wall3{display:grid;grid-template-columns:repeat(4,1fr);gap:0 clamp(8px,1.2vw,18px);height:max(560px,calc(100svh - var(--top) - 230px));margin-top:14px}
 .corners{display:none}
 .rail{display:contents}
 .col{display:flex;flex-direction:column;min-height:0;border-top:4px solid var(--line);padding-top:12px}
-.colh h3{display:flex;align-items:baseline;gap:10px;font-weight:900;font-size:clamp(28px,2.8vw,42px);line-height:1;letter-spacing:-.04em}
+.colh h3{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 10px;font-weight:900;font-size:clamp(24px,2.2vw,34px);line-height:1;letter-spacing:-.04em}
 .colh h3 i{font-style:normal;font-weight:800;font-size:.6em;color:var(--blue-text)}
-.colh h3 small{font-weight:700;font-size:15px;letter-spacing:0;color:var(--muted)}
-.colh p{font-weight:600;font-size:15px;color:var(--soft);margin-top:6px;line-height:1.35;min-height:2.7em}
-.cells{flex:1;min-height:0;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:6px;margin-top:6px}
+.colh h3 small{font-weight:700;font-size:var(--s-small);letter-spacing:0;color:var(--muted)}
+.colh .cv{display:block;font-weight:800;font-size:var(--s-small);color:var(--blue-text);margin-top:6px}
+.colh p{font-weight:600;font-size:var(--s-small);color:var(--soft);margin-top:6px;line-height:1.35;min-height:2.7em}
+.cells{flex:1;min-height:0;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1.25fr 1fr;gap:6px;margin-top:6px}
+.cells .wp.lead{grid-column:1/-1}
 .wp{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:6px;min-height:0;min-width:0;width:100%;padding:26px 4px 6px;transition:background-color .2s}
 .wp:hover,.wp.hot{background-color:rgba(255,255,255,.05)}
 .wp.main{background:radial-gradient(closest-side at 50% 45%,rgba(31,120,209,.22),transparent 78%)}
@@ -157,8 +160,8 @@ main{padding-top:var(--top)}
 .wall3[data-need]:not([data-need=all]) .wp.fit .pl{background:var(--blue);color:#fff}
 .wp.fit.swing .fig{animation:hang .9s var(--ease)}
 @keyframes hang{30%{transform:rotate(calc(var(--r) + 5deg))}60%{transform:rotate(calc(var(--r) - 2.5deg))}100%{transform:rotate(var(--r))}}
-.rx{margin-top:12px;min-height:52px;display:flex;align-items:center;justify-content:space-between;gap:12px 24px;flex-wrap:wrap;font-weight:700;font-size:var(--s-lead)}
-.rx[hidden]{display:none}
+.rx{margin-top:8px;min-height:48px;display:flex;align-items:center;justify-content:space-between;gap:12px 24px;flex-wrap:wrap;font-weight:700;font-size:var(--s-lead)}
+.rx[hidden]{display:flex;visibility:hidden}
 .rx p b{color:var(--blue-text)}
 .touch{display:none}@media (hover:none){.mouse{display:none}.touch{display:inline}}
 .hint{margin-top:12px;font-weight:600;font-size:var(--s-small);color:var(--muted)}
@@ -171,6 +174,8 @@ main{padding-top:var(--top)}
 #pv p{font-size:15px;line-height:1.45;color:var(--soft)}
 #pv .get{font-size:var(--s-small);color:var(--muted);font-weight:600}
 #pv .pr{font-weight:800;font-size:17px;margin-top:2px}
+#pv .pr small,.price small{display:block;font-weight:600;font-size:13px;color:var(--muted);margin-top:2px}
+#pv .vow,.dbody .vow{font-size:13px;color:var(--muted);font-weight:600}
 #pv .pf{font-weight:700;font-size:var(--s-small);color:#fff;border-left:3px solid var(--blue);padding-left:8px}
 #pv .acts{display:grid;grid-template-columns:1.4fr 1fr;gap:6px;margin-top:8px}
 #pv .btn{min-height:44px;padding:0 10px;font-size:15px}
@@ -348,18 +353,19 @@ dialog::backdrop{background:rgba(0,0,0,.72)}
  .burger{display:block}
  .cards{grid-template-columns:repeat(3,1fr)}
  .types5{grid-template-columns:repeat(3,1fr)}
- .wall3{height:auto}.cells{grid-template-rows:200px 200px}
+ .wall3{height:auto;grid-template-columns:1fr 1fr;gap:18px}.cells{grid-template-rows:220px 170px}
 }
 /* 휴대폰 */
 @media (max-width:900px){
  .wall3{display:block;height:auto}
  .corners{display:flex;gap:6px;position:sticky;top:var(--top);z-index:5;background:var(--board);padding:8px 0}
  .corners button{flex:1;min-height:44px;text-align:center;background:var(--surface2);font-weight:800;font-size:15px}
- .corners button[aria-pressed=true]{background:#fff;color:#000}
+ .corners button[aria-pressed=true]{background:var(--blue);color:#fff}
  .rail{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain;gap:12px}
  .rail::-webkit-scrollbar{display:none}
  .rail>.col{flex:0 0 88%;scroll-snap-align:start}
- .cells{grid-template-rows:repeat(2,minmax(150px,24svh))}
+ .cells{grid-template-rows:minmax(190px,30svh) minmax(150px,22svh)}
+ .corners button{font-size:14px;padding:0 4px}
 }
 @media (max-width:760px){
  :root{--top:88px;--s-body:16px}
@@ -409,16 +415,16 @@ dialog::backdrop{background:rgba(0,0,0,.72)}
   <section class="hero peg">
     <div class="msg">
       <div>
-        <div class="sign neon">SPIX 무기점</div>
+        <div class="sign neon">SPIX 무기점</div><p class="signsub">브랜드 · 홍보물 · 온라인 홍보 · 창업 준비</p>
         <h1>남들과 같은 무기로 싸우면<span>돈 많은 쪽이 이깁니다.</span></h1>
-        <p class="sub">광고비를 늘리기 전에, 손님이 나를 고를 이유 한 줄부터 정합니다. 그 한 줄로 명함·영상·홍보물을 만들고 알립니다.</p>
+        <p class="sub">광고비를 늘리기 전에, 손님이 나를 고를 이유 한 줄부터 정합니다. 그 한 줄로 명함 한 장부터 인스타 운영까지 맡습니다.</p>
         <p class="start">상담은 무료입니다. 대표가 화·목 오전에 직접 연락합니다.</p>
       </div>
       <div class="hang" aria-hidden="true"><i class="hk"></i><img src="img/symbol.png" alt="" width="152" height="240"></div>
     </div>
     <div class="doors">
-      <a class="door" href="#/service/brand" data-entry="biz"><span class="dk" aria-hidden="true"><i class="hk"></i><img src="w/sword.webp" alt="" width="520" height="400"></span><b>지금 사업 중입니다</b><span>손님이 옆집 말고 나를 고르게.</span><u>브랜드 설계부터 보기</u></a>
-      <a class="door" href="#/service/diag" data-entry="start"><span class="dk" aria-hidden="true"><i class="hk"></i><img src="w/bell.webp" alt="" width="520" height="400"></span><b>창업을 준비합니다</b><span>시작 전에, 심사해 본 눈으로 아이템을 먼저 봅니다.</span><u>아이템 진단 보기</u></a>
+      <a class="door" href="#/service/brand" data-entry="biz"><span class="dk" aria-hidden="true"><i class="hk"></i><img src="w/sword.webp" alt="" width="520" height="400"></span><b>지금 사업 중입니다</b><span>손님이 옆집 말고 나를 고르게.</span><u>명함부터 브랜드 설계까지 보기</u></a>
+      <a class="door" href="#/service/diag" data-entry="start"><span class="dk" aria-hidden="true"><i class="hk"></i><img src="w/bell.webp" alt="" width="520" height="400"></span><b>창업을 준비합니다</b><span>심사위원을 지낸 대표가 내 아이템부터 봅니다.</span><u>아이템 진단 보기 · 10만 원 안팎</u></a>
       <a class="door" href="#/service/for-org" data-entry="org"><span class="dk" aria-hidden="true"><i class="hk"></i><img src="w/magazine.webp" alt="" width="520" height="400"></span><b>지역·기관 사업을 맡고 있습니다</b><span>행사를 늘리기 전에, 이 지역만의 한 줄을 정합니다.</span><u>용역 유형과 실적 보기</u></a>
     </div>
     <div class="grounds">
@@ -512,7 +518,7 @@ dialog::backdrop{background:rgba(0,0,0,.72)}
   </div>
   <div class="of">
     <div class="pagehead peg"><h1>용역 유형별로 보기</h1><p class="lead">브랜드, 홍보, 축제·행사, 영상, 출판, 교육 플랫폼까지 기획부터 납품까지 맡습니다. 행정안전부, 문화체육관광부, 경상북도, 목포시의 사업을 수행했습니다.</p>
-      <ol class="osteps"><li><b>1 차별점 정하기</b>이 지역만의 한 줄을 정합니다.</li><li><b>2 홍보물 만들기</b>브랜드 필름, 매거진, 홍보물, 플랫폼으로 만듭니다.</li><li><b>3 알리기</b>축제·행사·온라인으로 사람이 찾아오게 합니다.</li></ol>
+      <ol class="osteps"><li><b>브랜드·기획 용역</b>이 지역만의 한 줄과 계획을 세웁니다.</li><li><b>홍보물·영상·출판 용역</b>브랜드 필름, 매거진, 홍보물, 플랫폼으로 만듭니다.</li><li><b>축제·행사·홍보 운영</b>사람이 찾아오게 운영하고 결과물을 남깁니다.</li></ol>
     </div>
     <section class="sec" style="padding-top:20px">
       <div class="types5" id="types5"></div>
@@ -567,8 +573,8 @@ dialog::backdrop{background:rgba(0,0,0,.72)}
     <div>
       <form class="sheet" id="fm" novalidate>
         <p class="pick" id="pick" hidden></p>
-        <input type="hidden" name="weapon" id="fw"><input type="hidden" name="entry" id="fe"><input type="hidden" name="kind" id="fk">
-        <div class="q"><label for="f1" id="l1">이름 · 분야</label><input id="f1" name="name" type="text" required aria-describedby="e1" placeholder="예: 우리 브랜드 · 식품 제조" autocomplete="organization"><p class="err" id="e1" hidden>이름이나 분야를 적어 주세요. 대표가 연락할 때 부를 이름입니다.</p></div>
+        <input type="hidden" name="weapon" id="fw"><input type="hidden" name="entry" id="fe"><input type="hidden" name="kind" id="fk"><input type="hidden" name="src" id="fs">
+        <div class="q"><label for="f1" id="l1">부를 이름 · 하는 일</label><input id="f1" name="name" type="text" required aria-describedby="e1" placeholder="예: 홍길동 · 수제 간식 제조" autocomplete="name"><p class="err" id="e1" hidden>이름이나 분야를 적어 주세요. 대표가 연락할 때 부를 이름입니다.</p></div>
         <div class="q"><label for="f2">연락처</label><input id="f2" name="tel" type="tel" inputmode="tel" required aria-describedby="e2" placeholder="010-0000-0000" autocomplete="tel"><p class="err" id="e2" hidden>전화번호를 다시 확인해 주세요. 예: 010-1234-5678</p></div>
         <div class="q" data-only="proposal"><label for="f5">메일 (선택)</label><input id="f5" name="email" type="email" inputmode="email" placeholder="예: 담당자@기관.go.kr" autocomplete="email"></div>
         <div class="q" data-only="diagnosis"><label for="f3">아이템 한 줄 (선택)</label><input id="f3" name="item" type="text" placeholder="예: 동네 반려동물 수제 간식 구독" autocomplete="off"></div>
@@ -593,7 +599,7 @@ dialog::backdrop{background:rgba(0,0,0,.72)}
   <div>
     <p>사라지는 것에서 시작한 회사, 스픽스.</p>
     <nav aria-label="바닥 메뉴"><a href="#/about">소개</a><a href="#/service">서비스</a><a href="#/project">프로젝트</a><a href="#/space">공간 브랜드</a><a href="#/press">언론</a><a href="#/contact">상담</a></nav>
-    <small>상담은 화·목 오전, 대표가 직접 연락합니다. 사업자 정보·대표 메일 <span class="ck">확인 중</span></small>
+    <small>상담은 화·목 오전, 대표가 직접 연락합니다. 사업자 정보·대표 메일·대표 인스타·블로그 <span class="ck">확인 중</span></small>
     <small>스픽스(SPIX) · 내부 검토용 시안 · 공개 전 문구와 값이 바뀝니다.</small>
   </div>
 </footer>
@@ -607,37 +613,39 @@ const CK='<span class="ck">확인 중</span>';
 const PCK=v=>v.replace('CHK',CK);
 const store={get:k=>{try{return sessionStorage.getItem(k)}catch{return null}},set:(k,v)=>{try{v==null?sessionStorage.removeItem(k):sessionStorage.setItem(k,v)}catch{}}};
 window.dataLayer=window.dataLayer||[];
-function track(n,p={}){dataLayer.push({event:n,entry:store.get('spix_entry')||'none',page:(location.hash.split('/')[1]||'home'),...p})}
+function track(n,p={}){dataLayer.push({event:n,entry:store.get('spix_entry')||'none',src:store.get('spix_src')||'none',page:(location.hash.split('/')[1]||'home'),...p})}
+(function(){if(store.get('spix_src'))return;const hq=new URLSearchParams(location.hash.split('?')[1]||''),sq=new URLSearchParams(location.search);const ref=(document.referrer.match(/\/\/([^/]+)/)||[])[1]||'';const guess=/instagram/.test(ref)?'ig':/blog\.naver/.test(ref)?'blog':/naver|google|daum/.test(ref)?'search':ref?'etc':'direct';store.set('spix_src',hq.get('src')||sq.get('src')||guess);track('land')})();
 
 /* 약속 띠 */
-const TK={shop:['상담은 무료입니다','대표가 화·목 오전에 직접 연락합니다','명함 한 장, 진단 한 건부터 맡습니다','진행하지 않으면 예약금 전액 환불','디자인은 스픽스, 인쇄·배송은 성원애드피아','맞춤 제작은 처방 뒤 견적'],
+const TK={shop:['상담은 무료입니다','대표가 화·목 오전에 직접 연락합니다','명함 디자인 5만 원부터(시험 가격)','아이템 진단 10만 원 안팎(시험 가격)','진행하지 않으면 예약금 전액 환불','디자인은 스픽스, 인쇄·배송은 성원애드피아','값은 부가세 별도'],
  org:['기획부터 납품까지 한 팀이 맡습니다','행정안전부 · 문화체육관광부 · 경상북도 · 목포시 사업 수행','브랜드 · 홍보 · 축제·행사 · 영상 · 출판 · 교육 플랫폼','제안 요청은 화·목 오전에 대표가 직접 답합니다']};
 function ticker(org){const a=TK[org?'org':'shop'];$('#tk').innerHTML=[...a,...a,...a,...a].map(t=>`<span>${t}</span>`).join('')}
 
 /* 무기 12 = 상품 12 (짝은 마케터 결정 전, 그대로) */
 const WEP=[
-{id:'card',w:'표창',img:'shuriken',hk:[50,0],r:-6,n:'명함',one:'처음 만난 사람 손에 내 한 줄을 남깁니다.',get:['명함 디자인','인쇄·배송(성원애드피아)'],price:'디자인비 + 인쇄 실비',p:1},
-{id:'banner',w:'화살',img:'arrows',hk:[90,0],r:-4,n:'홍보 인쇄물',one:'전단·현수막·카탈로그 중 필요한 화살만 골라 내 한 줄을 싣습니다.',get:['디자인','인쇄·배송(성원애드피아)'],price:'디자인비 + 인쇄 실비',p:1},
-{id:'flyer',w:'탄환',img:'bullets',hk:[51,0],r:0,n:'인스타 콘텐츠',one:'옆집과 다른 목소리로 피드를 꾸준히 채웁니다.',get:['편수·주기 CHK'],price:'CHK'},
-{id:'goods',w:'쌍절곤',img:'nunchaku',hk:[81,1],r:6,n:'블로그 포스팅',one:'검색하는 손님 앞에 내 글을 반복해서 놓습니다.',get:['편수 CHK'],price:'CHK'},
-{id:'poster',w:'도끼',img:'axe',hk:[78,0],r:-8,n:'영상 제작',one:'내 사업을 한 장면으로 크게 남깁니다.',get:['기획·촬영·편집 범위 CHK'],price:'CHK'},
-{id:'brand',w:'장검',img:'sword',hk:[96,1],r:-2,n:'브랜드 설계',one:'왜 나를 골라야 하는지, 손님에게 한 줄로 말하게 만듭니다.',get:['대표 진단','처방서 1장','한 줄 소개','로고 정리','대표 홍보물 1종'],price:'300만 원부터',main:1,more:['기간 CHK','나눠 내기 CHK']},
-{id:'custom',w:'창',img:'spear',hk:[99,1],r:-3,n:'맞춤 제작',one:'그 한 줄을 브랜드·웹·패키지 끝까지 닿게 만듭니다.',get:['처방서에 따라 필요한 것만'],price:'처방 뒤 견적 · 최대 금액 CHK'},
-{id:'care',w:'숫돌',img:'whetstone',hk:[90,0],r:-1,n:'브랜드 정비(월)',one:'쓰다 무뎌진 무기를 매달 다시 세웁니다.',get:['매달 점검·손질, 범위 CHK'],price:'월 30만 원부터'},
-{id:'diag',w:'종',img:'bell',hk:[50,1],r:0,n:'비대면 창업 아이템 진단',one:'돈 쓰기 전에, 심사해 본 눈으로 아이템을 먼저 봅니다.',get:['대표 판정서 1장','비대면'],price:'10만 원 안팎 (시험 가격)',cta:['내 아이템 진단받기','diagnosis']},
-{id:'map',w:'지도',img:'map',hk:[47,1],r:-2,n:'창업 · 성장 로드맵',one:'노릴 지원사업과 순서를 한 장에 펼쳐, 다음 달 할 일을 정합니다.',get:['순서 지도 1장'],price:'CHK'},
-{id:'book',w:'병법서',img:'books',hk:[57,0],r:3,n:'주제별 전자책',one:'혼자 먼저 해 보고 싶을 때 펼치는 교본입니다.',get:['주제 CHK'],price:'준비 중',cta:['이 주제로 상담','weapon']},
-{id:'agency',w:'활',img:'bow',hk:[99,0],r:4,n:'마케팅 대행',one:'만든 무기를 실제로 쏴서 손님이 찾아오게 합니다.',get:['영상','홍보 전략','인스타 콘텐츠'],price:'CHK',proof:"사례: 남악신도시 'ㅁ'사, 영상·인스타 운영 3개월 뒤 월 매출 900만 → 2,700만 원"}];
+{id:'card',w:'표창',img:'shuriken',hk:[50,0],r:-6,n:'명함',one:'처음 만난 사람 손에 내 한 줄을 남깁니다.',get:['명함 디자인','인쇄·배송(성원애드피아 공장 직배송)'],price:'디자인 5만 원 + 인쇄 실비',tag:'시험 가격 · 부가세 별도',p:1,lead:1},
+{id:'banner',w:'화살',img:'arrows',hk:[90,0],r:-4,n:'홍보 인쇄물',one:'전단·현수막·배너 중 필요한 화살만 골라 내 한 줄을 싣습니다.',get:['디자인','인쇄·배송(성원애드피아 공장 직배송)'],price:'전단 10만 원 · 현수막·배너 5만 원 + 인쇄 실비',tag:'시험 가격 · 부가세 별도',p:1},
+{id:'flyer',w:'탄환',img:'bullets',hk:[51,0],r:0,n:'인스타 콘텐츠',one:'처방서의 한 줄을 인스타 게시물로 만들어, 볼 때마다 같은 이름이 남게 합니다.',get:['게시물 기획·디자인·글','형식·편수 CHK'],price:'편수와 주기로 정합니다 · CHK'},
+{id:'goods',w:'쌍절곤',img:'nunchaku',hk:[81,1],r:6,n:'블로그 포스팅',one:'손님이 검색하는 질문에, 내 경험으로 답하는 글을 씁니다.',get:['주제 목록·글','편수 CHK'],price:'편수로 정합니다 · CHK'},
+{id:'poster',w:'도끼',img:'axe',hk:[78,0],r:-8,n:'영상 제작',one:'말로 설명하기 긴 내 사업을 영상 한 편으로 보여 줍니다.',get:['기획·촬영·편집','짧은 세로 영상·홍보 영상 중 범위 CHK'],price:'범위로 정합니다 · CHK'},
+{id:'brand',w:'장검',img:'sword',hk:[96,1],r:-2,n:'브랜드 설계',one:'왜 나를 골라야 하는지, 손님에게 한 줄로 말하게 만듭니다.',get:['대표 진단(행정안전부 청년마을 심사위원 2023)','처방서 1장','한 줄 소개','로고 정리','대표 홍보물 1종'],price:'300만 원부터',tag:'부가세 별도 · 예약금 10만 원은 대금에서 뺌',main:1,lead:1,more:['처방서에 담는 것: 차별점 한 줄 · 손님 · 주력 채널 하나 · 다음 6개월 할 일 셋 CHK','대표 홍보물: 상세페이지·소개서·간판 문구 중 하나 CHK','기간 2~3주 CHK','나눠 내기 CHK'],small:'작게 먼저: 명함·인쇄물 디자인 5만 원부터'},
+{id:'custom',w:'창',img:'spear',hk:[99,1],r:-3,n:'맞춤 제작',one:'홈페이지나 패키지처럼 틀이 정해지지 않은 일을 처방서에 맞춰 만듭니다.',get:['처방서에 따라 필요한 것만'],price:'브랜드 설계 처방 뒤 견적'},
+{id:'care',w:'숫돌',img:'whetstone',hk:[90,0],r:-1,n:'브랜드 정비(월)',one:'스픽스와 만든 브랜드가 무뎌지지 않게 매달 손질합니다.',get:['브랜드 설계·맞춤 제작을 맡긴 분께 이어 드립니다','매달 점검·손질, 범위 CHK'],price:'월 30만 원부터',tag:'부가세 별도'},
+{id:'diag',w:'종',img:'bell',hk:[50,1],r:0,n:'비대면 창업 아이템 진단',one:'돈 쓰기 전에, 심사해 본 눈으로 아이템을 먼저 봅니다.',get:['대표 판정서 1장','비대면','심사위원(2023)의 눈'],price:'10만 원 안팎',tag:'시험 가격',cta:['내 아이템 진단받기','diagnosis'],lead:1,vow:'비대면 · 판정서 1장'},
+{id:'map',w:'지도',img:'map',hk:[47,1],r:-2,n:'창업 · 성장 로드맵',one:'노릴 지원사업과 순서를 한 장에 펼쳐, 다음 달 할 일을 정합니다.',get:['순서 지도 1장'],price:'값은 CHK'},
+{id:'book',w:'병법서',img:'books',hk:[57,0],r:3,n:'주제별 전자책',one:'혼자 먼저 해 보고 싶을 때 펼치는 교본입니다.',get:['주제 CHK'],price:'준비 중',cta:['진단 신청 때 함께 묻기','diagnosis'],vow:'전자책이 나오면 진단 신청한 분께 먼저 알립니다'},
+{id:'agency',w:'활',img:'bow',hk:[99,0],r:4,n:'마케팅 대행',one:'만든 무기를 3개월 동안 실제로 쏴서, 손님이 찾아오는 길을 냅니다.',get:['3개월 단위','운영 전략','필요한 채널(영상·인스타·블로그) 운영','시작과 끝 숫자 비교(이름 검색·문의)'],price:'3개월 단위 · 상담 뒤 견적',lead:1,proof:"사례: 남악신도시 'ㅁ'사, 영상·인스타 운영 3개월 뒤 월 매출 900만 → 2,700만 원"}];
 const W=id=>WEP.find(x=>x.id===id);
-const COLS=[['정하기','브랜드','왜 나를 골라야 하는지 한 줄로 정합니다.',['brand','diag','map','book']],
- ['만들기','홍보','그 한 줄을 명함·인쇄물·영상으로 만듭니다.',['card','banner','custom','poster']],
- ['알리기','마케팅','그 한 줄을 꾸준히 알려 손님이 찾아오게 합니다.',['agency','flyer','goods','care']]];
+const COLS=[['브랜드','설계 · 맞춤 제작 · 월 정비','손님이 나를 고를 이유 한 줄을 정하고, 끝까지 지킵니다.',['brand','custom','care'],'300만 원부터'],
+ ['홍보물','명함 · 인쇄물 · 영상','그 한 줄을 손님 손에 닿는 명함·인쇄물·영상으로 만듭니다.',['card','banner','poster'],'디자인 5만 원부터 + 인쇄 실비'],
+ ['온라인 홍보','대행 · 인스타 · 블로그','검색하고 넘겨 보는 손님 앞에 내 이름이 꾸준히 보이게 합니다.',['agency','flyer','goods'],'범위 보고 견적'],
+ ['창업 준비','진단 · 로드맵 · 전자책','첫 돈을 쓰기 전에, 이 아이템이 될지와 무엇부터 할지 봅니다.',['diag','map','book'],'진단 10만 원 안팎부터']];
 /* 걱정 하나 고르기 → 맞는 무기 (짝은 마케터 확인 전 초안) */
-const NEED=[['all','전체'],['name','이름·로고',['brand','custom','care'],'이름·로고부터라면 <b>브랜드 설계</b>(300만 원부터)로 한 줄을 정하고, 맞춤 제작으로 끝까지 닿게 합니다.'],
- ['print','명함·인쇄물',['card','banner'],'명함·인쇄물부터라면 디자인은 스픽스가, 인쇄·배송은 성원애드피아가 맡습니다. <b>디자인비 + 인쇄 실비</b>.'],
- ['film','영상·사이트',['poster','custom'],'영상·사이트부터라면 <b>영상 제작</b>과 <b>맞춤 제작</b>으로 범위를 정합니다. 값은 처방 뒤 견적입니다.'],
- ['reach','손님 오게 하기',['agency','flyer','goods'],'손님 오게 하기부터라면 <b>마케팅 대행</b>, 인스타 콘텐츠, 블로그 포스팅 중에서 맞는 것을 고릅니다.'],
- ['start','시작해도 될지',['diag','map','book'],'시작해도 될지부터라면 <b>아이템 진단</b>(10만 원 안팎, 시험 가격)으로 먼저 보고, 로드맵으로 순서를 정합니다.']];
+const NEED=[['all','전체'],['name','이름·로고',['brand','custom'],'처방: <b>브랜드 설계</b>로 한 줄과 로고를 먼저 정합니다. 300만 원부터, 넓힐 일은 맞춤 제작으로.'],
+ ['print','명함·전단',['card','banner'],'처방: <b>명함</b>이나 <b>홍보 인쇄물</b>. 디자인은 스픽스, 인쇄·배송은 성원애드피아. 명함 디자인 5만 원 + 인쇄 실비(시험 가격).'],
+ ['film','영상·홈페이지',['poster','custom'],'처방: <b>영상 제작</b>이나 <b>맞춤 제작</b>. 무엇을 만들지 상담에서 정하고, 그 뒤에 견적을 드립니다.'],
+ ['reach','손님 늘리기',['agency','flyer','goods'],'처방: <b>마케팅 대행</b>으로 석 달을 함께 돌리거나, 인스타·블로그 하나부터 시작합니다.'],
+ ['start','창업 준비',['diag','map','book'],'처방: <b>아이템 진단</b>(10만 원 안팎, 시험 가격)으로 될지부터 보고, 로드맵으로 순서를 잡습니다.']];
 const NEEDOF=k=>NEED.find(x=>x[0]===k);
 
 function placeHook(fig){const img=$('img',fig),hk=$('.hk',fig);if(!img||!img.naturalWidth)return;const W0=fig.clientWidth,H0=fig.clientHeight,k=Math.min(W0/img.naturalWidth,H0/img.naturalHeight),w=img.naturalWidth*k,h=img.naturalHeight*k,x=(W0-w)/2,y=(H0-h)/2;hk.style.left=(x+w*(+fig.dataset.hx)/100)+'px';hk.style.top=(y+h*(+fig.dataset.hy)/100-26)+'px'}
@@ -645,14 +653,14 @@ const hooksAll=()=>$$('.fig').forEach(placeHook);
 addEventListener('resize',hooksAll);
 function wall(el){
  const key=el.id;
- const cols=COLS.map((c,i)=>`<section class="col" aria-labelledby="${key}-c${i}"><div class="colh"><h3 id="${key}-c${i}"><i>${i+1}</i>${c[0]}<small>${c[1]}</small></h3><p>${c[2]}</p></div><div class="cells">${c[3].map(id=>{const s=W(id);return `<button class="wp${s.main?' main':''}" type="button" data-w="${s.id}" aria-label="${s.w}${s.main?', 주력':''}: ${s.n}"><span class="fig" style="--r:${s.r}deg" data-hx="${s.hk[0]}" data-hy="${s.hk[1]}"><i class="hk"></i><img src="w/${s.img}.webp" alt="" draggable="false" width="520" height="400"></span><span class="pl">${s.main?'<em>주력</em>':''}${s.n}</span></button>`}).join('')}</div></section>`).join('');
+ const cols=COLS.map((c,i)=>`<section class="col" aria-labelledby="${key}-c${i}"><div class="colh"><h3 id="${key}-c${i}">${c[0]}<small>${c[1]}</small></h3><p>${c[2]}</p><b class="cv">${c[4]}</b></div><div class="cells">${c[3].map(id=>{const s=W(id);return `<button class="wp${s.main?' main':''}${s.lead?' lead':''}" type="button" data-w="${s.id}" aria-label="${s.w}${s.main?', 먼저 권함':''}: ${s.n}"><span class="fig" style="--r:${s.r}deg" data-hx="${s.hk[0]}" data-hy="${s.hk[1]}"><i class="hk"></i><img src="w/${s.img}.webp" alt="" draggable="false" width="520" height="400"></span><span class="pl">${s.main?'<em>먼저 권함</em>':''}${s.n}</span></button>`}).join('')}</div></section>`).join('');
  const ask=`<fieldset class="ask"><legend>무엇부터 바꾸고 싶으세요?</legend>${NEED.map((n,i)=>`<label><input type="radio" name="need-${key}" value="${n[0]}"${i?'':' checked'}>${n[1]}</label>`).join('')}</fieldset>`;
- el.insertAdjacentHTML('beforeend',`${ask}<div class="wall3" data-need="all"><div class="corners" role="group" aria-label="코너">${COLS.map((c,i)=>`<button type="button" aria-pressed="${!i}">${c[0]} ${c[3].length}</button>`).join('')}</div><div class="rail">${cols}</div></div><div class="rx" hidden aria-live="polite"><p></p><a class="btn" data-cta="rx" href="#/contact/weapon">이 처방으로 상담</a></div><p class="hint"><span class="mouse">무기에 마우스를 대면 상품과 값이 나옵니다. 누르면 자세히 봅니다.</span><span class="touch">무기를 한 번 누르면 상품과 값이, 한 번 더 누르면 자세히 나옵니다.</span></p>`);
+ el.insertAdjacentHTML('beforeend',`${ask}<div class="rx" hidden aria-live="polite"><p></p><a class="btn" data-cta="rx" href="#/contact/weapon">이 처방으로 상담</a></div><div class="wall3" data-need="all"><div class="corners" role="group" aria-label="코너">${COLS.map((c,i)=>`<button type="button" aria-pressed="${!i}">${c[0]}</button>`).join('')}</div><div class="rail">${cols}</div></div><p class="hint"><span class="mouse">무기에 마우스를 대면 상품과 값이 나옵니다. 누르면 자세히 봅니다.</span><span class="touch">무기를 한 번 누르면 상품과 값이, 한 번 더 누르면 자세히 나옵니다.</span> 값은 부가세 별도입니다. 시험 가격은 첫 주문 몇 건 동안의 값입니다.</p>`);
  $$('.fig img',el).forEach(i=>{i.complete?placeHook(i.parentElement):i.addEventListener('load',()=>placeHook(i.parentElement))});
  const w3=$('.wall3',el),rx=$('.rx',el);
  $('.ask',el).addEventListener('change',e=>{const v=e.target.value,n=NEEDOF(v);w3.dataset.need=v;
   $$('.wp',el).forEach(b=>{const fit=!!n[2]&&n[2].includes(b.dataset.w);b.classList.toggle('fit',fit);b.classList.remove('swing');if(fit){void b.offsetWidth;b.classList.add('swing')}});
-  rx.hidden=!n[2];if(n[2]){$('p',rx).innerHTML=n[3];const one=n[2][0];$('a',rx).href=`#/contact/${one==='diag'?'diagnosis':'weapon'}/${one}?need=${v}`}
+  rx.hidden=!n[2];if(n[2]){$('p',rx).innerHTML=n[3];const one=n[2][0];$('a',rx).href=`#/contact/${one==='diag'?'diagnosis':'weapon'}/${one}?need=${v}`;const fb=$(`.wp[data-w="${one}"]`,el);if(fb&&getComputedStyle($('.rail',el)).display==='flex'){const col=fb.closest('.col'),rl=$('.rail',el);rl.scrollTo({left:col.offsetLeft-rl.offsetLeft,behavior:'smooth'})}}
   store.set('spix_need',v==='all'?null:v);track('need_select',{need:v})});
  // 휴대폰 코너 탭
  const rail=$('.rail',el),tabs=$$('.corners button',el),cs=$$('.col',rail);
@@ -666,7 +674,7 @@ $$('[data-shelf]').forEach(wall);
 const pv=$('#pv');let pvT,pvCur=null,lastWp=null,quiet=false;
 function showPv(b,via){clearTimeout(pvT);if(pvCur===b&&!pv.hidden)return;pvCur?.classList.remove('hot');const s=W(b.dataset.w);pvCur=b;
  const c=s.cta||['이 무기로 상담','weapon'];
- pv.innerHTML=`<span class="w">${s.w}${s.main?' · 주력':''}</span><strong>${s.n}</strong><p>${s.one}</p><span class="get">${PCK(s.get.join(' · '))}</span>${s.proof?`<span class="pf">${s.proof}</span>`:''}<span class="pr">${PCK(s.price)}</span><div class="acts"><a class="btn" data-cta="preview" href="#/contact/${c[1]}/${s.id}">${c[0]}</a><button class="btn line" type="button" data-d="${s.id}">자세히</button></div><button class="pvx" type="button">닫기</button>`;
+ pv.innerHTML=`<span class="w">${s.w}${s.main?' · 먼저 권함':''}</span><strong>${s.n}</strong><p>${s.one}</p><span class="get">${PCK(s.get.join(' · '))}</span>${s.proof?`<span class="pf">${s.proof}</span>`:''}<span class="pr">${PCK(s.price)}${s.tag?`<small>${s.tag}</small>`:''}</span><div class="acts"><a class="btn" data-cta="preview" href="#/contact/${c[1]}/${s.id}">${c[0]}</a><button class="btn line" type="button" data-d="${s.id}">자세히</button></div><span class="vow">${s.vow||'상담 무료 · 진행하지 않으면 예약금 전액 환불'}</span>${s.small?`<span class="vow">${s.small}</span>`:''}<button class="pvx" type="button">닫기</button>`;
  pv.hidden=false;const r=b.getBoundingClientRect(),W2=pv.offsetWidth,H2=pv.offsetHeight;
  if(innerWidth>760){let x=r.right+8;if(x+W2>innerWidth-10)x=r.left-W2-8;if(x<10)x=Math.max(10,Math.min(innerWidth-W2-10,r.left));let y=r.top+r.height/2-H2/2;y=Math.max(100,Math.min(innerHeight-H2-10,y));pv.style.left=x+'px';pv.style.top=y+'px'}else{pv.style.left='';pv.style.top=''}
  b.classList.add('hot');b.closest('.wall3').classList.add('dim');track('weapon_preview',{weapon:s.id,via})}
@@ -691,7 +699,7 @@ document.addEventListener('click',e=>{
 /* 서랍 */
 const dr=$('#dr'),dc=$('#dc');
 function openS(id,from){const s=W(id),c=s.cta||['이 무기로 상담','weapon'];
- dc.innerHTML=`<div class="dfig"><img src="w/${s.img}.webp" alt="" width="520" height="400"></div><div class="dbody"><div><span class="w">${s.w}${s.main?' · 주력':''}</span><h2 id="dtitle">${s.n}</h2><p class="one">${s.one}</p></div><div class="price">${PCK(s.price)}</div><div><h3>받는 것</h3><ul>${s.get.map(g=>`<li>${PCK(g)}</li>`).join('')}${(s.more||[]).map(g=>`<li>${PCK(g)}</li>`).join('')}</ul></div><div><h3>누가 만드나</h3><ul><li>${s.p?'디자인은 스픽스, 인쇄와 배송은 성원애드피아 공장에서 바로 보냅니다.':'스픽스가 직접 만들고, 대표가 직접 봅니다.'}</li></ul></div>${s.proof?`<div><h3>있었던 일</h3><ul><li>${s.proof.replace('사례: ','')}</li></ul></div>`:''}<p class="dneed">필요한 사진: ${s.n} 실제 결과물</p><a class="btn" data-cta="drawer" href="#/contact/${c[1]}/${s.id}">${c[0]}</a></div>`;
+ dc.innerHTML=`<div class="dfig"><img src="w/${s.img}.webp" alt="" width="520" height="400"></div><div class="dbody"><div><span class="w">${s.w}${s.main?' · 먼저 권함':''}</span><h2 id="dtitle">${s.n}</h2><p class="one">${s.one}</p></div><div class="price">${PCK(s.price)}${s.tag?`<small>${s.tag}</small>`:''}</div><div><h3>받는 것</h3><ul>${s.get.map(g=>`<li>${PCK(g)}</li>`).join('')}${(s.more||[]).map(g=>`<li>${PCK(g)}</li>`).join('')}</ul></div><div><h3>누가 만드나</h3><ul><li>${s.p?'디자인은 스픽스, 인쇄와 배송은 성원애드피아 공장에서 바로 보냅니다.':'스픽스가 직접 만들고, 대표가 직접 봅니다.'}</li></ul></div>${s.proof?`<div><h3>있었던 일</h3><ul><li>${s.proof.replace('사례: ','')}</li></ul></div>`:''}<p class="dneed">필요한 사진: ${s.n} 실제 결과물</p><a class="btn" data-cta="drawer" href="#/contact/${c[1]}/${s.id}">${c[0]}</a><span class="vow">${s.vow||'상담 무료 · 진행하지 않으면 예약금 전액 환불'}</span>${s.main?'<p class="one" style="margin:0;font-weight:700;color:#fff">광고비는 멈추는 날 끝납니다. 이름은 남습니다.</p>':''}</div>`;
  dr.showModal();dc.scrollTop=0;$('#dx').focus();track('weapon_detail_open',{weapon:id,from})}
 function openP(i){const p=P[i];
  dc.innerHTML=`<div class="dfig ${p.img?'full':''}">${p.img?`<img src="img/${p.img}.jpg" alt="${p.n}">`:`<div class="need">필요한 사진: ${p.need}</div>`}</div><div class="dbody"><div><span class="w">${T[p.t]}</span><h2 id="dtitle">${p.n}</h2></div><dl class="dl"><div><dt>발주처</dt><dd>${p.c||CK}</dd></div><div><dt>용역 유형</dt><dd>${T[p.t]}</dd></div><div><dt>결과물</dt><dd>${p.k}</dd></div><div><dt>연도</dt><dd>${p.y||CK}</dd></div>${p.num?`<div><dt>숫자</dt><dd>${p.num}</dd></div>`:''}${p.o?`<div><dt>비고</dt><dd>${p.o}</dd></div>`:''}</dl><a class="btn" data-cta="project" href="#/contact/proposal">이런 일 제안 요청하기</a></div>`;dr.showModal();$('#dx').focus()}
@@ -775,9 +783,9 @@ $('#proofs').innerHTML=[
 /* 행동 */
 $$('[data-act]').forEach(el=>el.innerHTML=`<h2 class="h2"><span class="wf">무기 맞추기, 세 걸음이면 됩니다.</span><span class="of">제안 요청, 세 걸음이면 됩니다.</span></h2>
 <ol class="steps"><li><b>1</b><h3>신청합니다.</h3><p>이름과 연락처, 두 칸이면 됩니다.</p></li><li><b>2</b><h3>대표가 <em>화·목 오전</em>에 직접 연락합니다.</h3><p>상담은 무료입니다.</p></li><li><b>3</b><h3 class="wf">맞는 무기와 값을 정합니다.</h3><h3 class="of">맡을 범위를 정합니다.</h3><p class="wf">예약금 10만 원은 계약하면 대금에서 빼고, 진행하지 않으면 전액 돌려드립니다.</p><p class="of">기획부터 납품까지 맡을 범위와 일정을 제안합니다.</p></li></ol>
-<ul class="answers wf"><li><b>얼마부터인가요</b><span>명함 한 장, 아이템 진단 10만 원 안팎부터 · 주력 브랜드 설계 300만 원부터</span></li><li><b>우리 업종도 되나요</b><span>공간 셋을 직접 운영했고, 2024년 민간기업 컨설팅 20건 이상</span></li><li><b>안 맞으면요</b><span>진행하지 않으면 예약금은 전액 돌려드립니다</span></li></ul>
+<ul class="answers wf"><li><b>얼마부터인가요</b><span>명함 디자인 5만 원, 아이템 진단 10만 원 안팎부터(시험 가격) · 브랜드 설계 300만 원부터(부가세 별도)</span></li><li><b>우리 업종도 되나요</b><span>폐교 동물테마파크와 섬 게스트하우스를 직접 운영했고, 2024년 한 해 민간기업 컨설팅을 20건 이상 맡았습니다.</span></li><li><b>어디가 다른가요</b><span>만들기 전에 대표가 먼저 진단합니다. 브랜드 설계에는 고를 이유를 적은 처방서 한 장이 들어갑니다.</span></li></ul>
 <p class="cta" data-ctas><a class="btn" data-cta="act" data-k="weapon" href="#/contact/weapon">무기 상담 신청</a><a class="btn" data-cta="act" data-k="diagnosis" href="#/contact/diagnosis">내 아이템 진단받기</a><a class="btn" data-cta="act" data-k="proposal" href="#/contact/proposal">제안 요청하기</a><span class="other"></span></p>
-<div class="close wf"><p class="big">광고비는 멈추는 날 끝납니다. 이름은 남습니다.</p><ul><li>사업 중이라면, 손님이 업종 말고 내 이름으로 검색합니다.</li><li>창업 준비라면, 첫 돈을 쓰기 전에 무엇부터 할지 압니다.</li><li>지역·기관이라면, 다음 해 계획서 첫 장에 넣을 결과물이 남습니다.</li></ul></div>`);
+<div class="close wf"><p class="big">광고비는 멈추는 날 끝납니다. 이름은 남습니다.</p><ul><li>사업 중이라면, 손님이 검색창에 내 이름을 칩니다.</li><li>창업 준비라면, 첫 돈을 쓰기 전에 무엇부터 할지 압니다.</li><li>지역·기관이라면, 다음 해 계획서 첫 장에 넣을 결과물이 남습니다.</li></ul></div>`);
 function applyEntry(){const map={biz:'weapon',start:'diagnosis',org:'proposal'},pick=map[store.get('spix_entry')]||'weapon';
  const NM={weapon:'무기 상담',diagnosis:'아이템 진단',proposal:'제안 요청'};
  $$('[data-ctas]').forEach(c=>{$$('a[data-k]',c).forEach(a=>a.hidden=a.dataset.k!==pick);$('.other',c).innerHTML='다른 상담: '+Object.keys(NM).filter(k=>k!==pick).map(k=>`<a class="tl" href="#/contact/${k}">${NM[k]}</a>`).join(' · ')});
@@ -787,19 +795,19 @@ document.addEventListener('click',e=>{const ent=e.target.closest('[data-entry]')
  if(e.target.closest('[data-home]')||e.target.closest('#orgoff')){store.set('spix_entry',null);setOrg(false);applyEntry()}});
 
 /* 상담 */
-const CT={weapon:['무기 상담 신청','맞는 무기를 함께 정합니다. 상담은 무료입니다.'],diagnosis:['내 아이템 진단받기','시작하기 전에, 심사해 본 눈으로 아이템을 먼저 봅니다. 판정서 한 장을 보냅니다.'],proposal:['제안 요청하기','사업 내용을 알려 주시면 기획부터 납품까지 맡을 범위를 제안합니다.']};
+const CT={weapon:['무기 상담 신청','무료 상담에서 맞는 무기 하나를 함께 정합니다. 정한 뒤 맡기지 않으셔도 괜찮습니다.'],diagnosis:['내 아이템 진단받기','시작하기 전에, 심사해 본 눈으로 아이템을 먼저 봅니다. 판정서 한 장을 보냅니다.'],proposal:['제안 요청하기','사업 내용을 알려 주시면 기획부터 납품까지 맡을 범위를 제안합니다.']};
 const HOW={weapon:[['신청합니다.','이름과 연락처, 두 칸이면 됩니다.'],['대표가 화·목 오전에 직접 연락합니다.','상담은 무료입니다.'],['맞는 무기와 값을 정합니다.','자리 확정 예약금 10만 원은 계약하면 대금에서 빼고, 진행하지 않으면 전액 돌려드립니다.']],
  diagnosis:[['신청합니다.','이름과 연락처, 두 칸이면 됩니다. 아이템 한 줄을 적어 주면 더 빠릅니다.'],['대표가 화·목 오전에 직접 연락합니다.','진단은 10만 원 안팎(시험 가격)입니다. 진행 방법을 안내합니다.'],['판정서 한 장을 받습니다.','비대면으로 진행합니다.']],
  proposal:[['요청합니다.','기관·담당자와 연락처, 두 칸이면 됩니다.'],['대표가 화·목 오전에 직접 연락합니다.','사업 내용과 일정을 여쭙니다.'],['맡을 범위를 제안합니다.','기획부터 납품까지 맡을 범위와 일정을 제안합니다.']]};
 let cType='weapon';
-const NEEDV=[['name','이름·로고'],['print','명함·인쇄물'],['film','영상·사이트'],['reach','손님 오게 하기'],['start','시작해도 될지'],['unknown','아직 모름']];
+const NEEDV=[['name','이름·로고'],['print','명함·전단'],['film','영상·홈페이지'],['reach','손님 늘리기'],['start','창업 준비'],['unknown','아직 모름']];
 $('#o-need').innerHTML=NEEDV.map(([v,t])=>`<label><input type="radio" name="need" value="${v}">${t}</label>`).join('');
 $$('[data-opts]').forEach(d=>d.innerHTML=d.dataset.v.split('|').map(t=>`<label><input type="radio" name="${d.dataset.opts}" value="${t}">${t}</label>`).join(''));
 function setC(t,w,q){cType=CT[t]?t:'weapon';$$('[data-only]').forEach(x=>x.hidden=x.dataset.only!==cType);
- $('#l1').textContent=cType==='proposal'?'기관 · 담당자':'이름 · 분야';$('#f1').placeholder=cType==='proposal'?'예: ○○군청 청년정책과 · 홍길동':'예: 우리 브랜드 · 식품 제조';
+ $('#l1').textContent=cType==='proposal'?'기관 · 담당자':'부를 이름 · 하는 일';$('#f1').placeholder=cType==='proposal'?'예: ○○군청 청년정책과 · 홍길동':'예: 홍길동 · 수제 간식 제조';
  const sw=W(w),pk=$('#pick');pk.hidden=!sw||cType==='proposal';
- if(sw)pk.innerHTML=`<img src="w/${sw.img}.webp" alt="" width="520" height="400"><span>고른 상품: <b>${sw.n}</b> · <a class="tl" href="#/service/${sw.id}">바꾸기</a></span>`;
- $('#fw').value=sw?sw.id:'';$('#fe').value=store.get('spix_entry')||'';$('#fk').value=cType;
+ if(sw)pk.innerHTML=`<img src="w/${sw.img}.webp" alt="" width="520" height="400"><span>고른 상품: <b>${sw.n}</b> · ${PCK(sw.price)} · <a class="tl" href="#/service/${sw.id}">바꾸기</a></span>`;
+ $('#fw').value=sw?sw.id:'';$('#fe').value=store.get('spix_entry')||'';$('#fk').value=cType;$('#fs').value=store.get('spix_src')||'';
  const nd=(q&&q.get('need'))||store.get('spix_need');if(nd){const r=$(`#o-need input[value="${nd}"]`);if(r)r.checked=true}
  $('#ctitle').textContent=CT[cType][0];$('#clead').textContent=CT[cType][1];$('#send').textContent=CT[cType][0];
  $('#reassure').textContent=cType==='proposal'?'화·목 오전에 대표가 직접 연락합니다.':'상담은 무료입니다. 화·목 오전에 대표가 직접 연락합니다.';
@@ -811,7 +819,7 @@ $('#fm').onsubmit=e=>{e.preventDefault();let first=null;
  [['f1','e1',v=>v.trim().length>0],['f2','e2',telOk]].forEach(([i,er,ok])=>{const el=$('#'+i),good=ok(el.value);$('#'+er).hidden=good;el.setAttribute('aria-invalid',!good);if(!good){if(!first)first=el;track('form_error',{field:i})}});
  if(first){first.focus();return}
  const sw=W($('#fw').value);track('form_submit',{form:cType,weapon:sw?.id||''});
- $('#done').innerHTML=`<h2>신청이 들어갔습니다.</h2><ul><li>${CT[cType][0]}${sw?` · 고른 상품: ${sw.n}`:''}</li><li>화·목 오전에 대표가 ${$('#f2').value.trim()}로 연락합니다.</li><li>미리 준비할 것 ${CK}</li></ul><small>시안 화면이라 실제로 접수되지 않았습니다. 입력한 내용은 어디에도 저장되지 않습니다.</small>`;
+ $('#done').innerHTML=`<h2>신청이 들어갔습니다.</h2><ul><li>${CT[cType][0]}${sw?` · 고른 상품: ${sw.n}`:''}</li><li>화·목 오전에 대표가 ${$('#f2').value.trim()}로 연락합니다.</li><li>지금 쓰는 명함이나 인스타 주소가 있으면 상담 때 보여 주세요. 공휴일이면 그다음 화·목에 연락합니다.</li></ul><p style="margin-top:12px"><a class="tl" href="#/project">기다리는 동안 수행 실적 보기</a></p><small>시안 화면이라 실제로 접수되지 않았습니다. 입력한 내용은 어디에도 저장되지 않습니다.</small>`;
  $('#fm').hidden=true;$('#done').hidden=false;$('#done').focus()};
 $$('#fm input').forEach(i=>i.addEventListener('input',()=>{const m={f1:'e1',f2:'e2'}[i.id];if(m&&!$('#'+m).hidden){$('#'+m).hidden=true;i.removeAttribute('aria-invalid')}}));
 
@@ -819,7 +827,7 @@ $$('#fm input').forEach(i=>i.addEventListener('input',()=>{const m={f1:'e1',f2:'
 document.addEventListener('click',e=>{const a=e.target.closest('[data-cta]');if(a){const[, ,form='weapon',weapon='']=a.getAttribute('href').split('?')[0].split('/');track('cta_click',{cta_pos:a.dataset.cta,form,weapon})}},true);
 
 /* 길찾기 */
-const TITLES={home:'스픽스 | 내 사업에 맞는 무기를 정하고, 만들고, 알립니다',about:'스픽스 | 소개',service:'스픽스 | 서비스',project:'스픽스 | 프로젝트',space:'스픽스 | 공간 브랜드',press:'스픽스 | 언론',contact:'스픽스 | 상담'};
+const TITLES={home:'스픽스 | 브랜드 · 홍보물 · 온라인 홍보 · 창업 준비',about:'스픽스 | 소개',service:'스픽스 | 서비스',project:'스픽스 | 프로젝트',space:'스픽스 | 공간 브랜드',press:'스픽스 | 언론',contact:'스픽스 | 상담'};
 function route(){
  const [path,qs]=(location.hash||'#/').split('?');const q=new URLSearchParams(qs||'');
  if(/^#proof-\d$/.test(path)){const t=$(path);if(t){$$('.page').forEach(x=>x.hidden=x.dataset.p!=='home');t.scrollIntoView()}return}
@@ -838,7 +846,7 @@ function route(){
  const pg=$(`.page[data-p="${name}"]`);
  requestAnimationFrame(hooksAll);
  const h1=$('h1:not([hidden])',pg);if(h1&&name!=='home'&&document.activeElement!==document.body){h1.tabIndex=-1;h1.focus({preventScroll:true})}
- if(name==='service'&&sub&&W(sub)){const sh=$('[data-shelf]',pg);const b=sh._go(sub);if(b){setTimeout(()=>{b.scrollIntoView({block:'center',behavior:'instant'});b.classList.add('fit','swing');setTimeout(()=>b.classList.remove('fit','swing'),1200);if(matchMedia('(hover:hover)').matches)showPv(b,'link')},300)}}
+ if(name==='service'&&sub&&W(sub)){const sh=$('[data-shelf]',pg);const b=sh._go(sub);if(b){setTimeout(()=>{b.scrollIntoView({block:'center',behavior:'instant'});b.classList.add('fit','swing');setTimeout(()=>b.classList.remove('fit','swing'),1200);showPv(b,'link')},300)}}
 }
 addEventListener('hashchange',route);
 $('#burger').onclick=()=>{const o=$('#menu').classList.toggle('open');$('#burger').setAttribute('aria-expanded',o)};
